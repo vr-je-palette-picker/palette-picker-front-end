@@ -8,7 +8,10 @@ const ProjectContainer = ({ project }) => {
     )
   })
   return (
-    <section>{ paletteCards }</section>
+    <section>
+      <h2>{project.project_name}</h2>
+      { paletteCards }
+      </section>
   )
 
 }
