@@ -22,7 +22,7 @@ class App extends Component {
               color_5: "#009B72",
             },
             {
-              palette_name: 'cool',
+              palette_name: 'wowzah',
               color_1: "#3D3935",
               color_2: "#009DDC",
               color_3: "#F26430",
