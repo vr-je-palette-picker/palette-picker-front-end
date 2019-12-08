@@ -18,5 +18,5 @@ class ColorCard extends Component {
     )
   }
 }
-// style={{backgroundColor: bgColors.Yellow}}
+
 export default ColorCard;
