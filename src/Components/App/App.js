@@ -5,13 +5,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      colors: [],
+      hexCodes: [],
       projects: []
     };
   }
 
-  randomColor = () => {
-    return Math.floor(Math.random() * 16777215).toString(16);
+  componentDidMount() {
+    this.randomizeHex()
+  }
+
+  randomizeHex = () => {
+    const hexCodes = [];
+    let i;
+    for( i = 0 ; i < 5 ; i++) {
+      hexCodes.push(Math.floor(Math.random() * 16777215).toString(16));
+    }
+    this.setState({ hexCodes })
   };
 
   render() {
