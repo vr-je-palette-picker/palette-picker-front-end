@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ColorCard from './../ColorCard/ColorCard.js';
+import Container from './../Container/Container.js';
 import './App.scss';
 
 class App extends Component {
@@ -26,16 +26,10 @@ class App extends Component {
   };
 
   render() {
-    const colorCards = this.state.hexCodes.map(hex => {
-      return <ColorCard hex={hex}/>
-    })
-    console.log('colorCards', colorCards)
     return (
       <div className='App'>
         <h1>Palette Picker</h1>
-        <section>
-          { colorCards }
-        </section>
+        <Container hexCodes = {this.state.hexCodes}/>
       </div>
     );
   }
