@@ -5,7 +5,7 @@ class ColorCard extends Component {
   constructor({ hex }) {
     super();
     this.state = {
-      locked: false,
+      selected: false,
       hex: hex
     }
   }

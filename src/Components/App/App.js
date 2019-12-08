@@ -54,10 +54,9 @@ class App extends Component {
 
   randomizeHex = () => {
     const hexCodes = [];
-    const pound = '#'
     let i;
     for( i = 0 ; i < 5 ; i++) {
-      hexCodes.push(pound + (Math.floor(Math.random() * 16777215).toString(16)));
+      hexCodes.push('#' + (Math.floor(Math.random() * 16777215).toString(16)));
     }
     this.setState({ hexCodes })
   };
@@ -70,9 +69,9 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>Palette Picker</h1>
-        { projects }
         {/* <Nav /> */}
-        {/* <Container hexCodes = {this.state.hexCodes}/> */}
+        {/* { projects } */}
+        <Container hexCodes = {this.state.hexCodes}/>
       </div>
     );
   }
