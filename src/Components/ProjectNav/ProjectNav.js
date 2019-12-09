@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import './ProjectNav.scss';
 
 export class ProjectNav extends Component {
+  createProjectSelectOptions = () => {
+    const { projects } = this.props;
+    let options = projects.map((project, index) => {
+      return <option key={index} value={project.project_name}></option>;
+    });
+    return options;
+  };
+
   render() {
     return (
       <div className='ProjectNav'>
         <button className='ProjectNav__button--new-project'>New Project</button>
         <select className='ProjectNav__select--project'>
-          {/* map through projects in state */}
+          {this.createProjectSelectOptions()}
         </select>
       </div>
     );

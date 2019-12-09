@@ -1,4 +1,5 @@
 import React from 'react';
+import './PaletteCard.scss'
 
 const PaletteCard = ({ palette }) => {
   return (
