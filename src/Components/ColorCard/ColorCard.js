@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './ColorCard.scss'
+import { MdCheckBoxOutlineBlank } from 'react-icons/md';
+import { IoMdCheckboxOutline } from 'react-icons/io';
+import './ColorCard.scss';
 
 class ColorCard extends Component {
   constructor({ hex }) {
@@ -7,15 +9,20 @@ class ColorCard extends Component {
     this.state = {
       selected: false,
       hex: hex
-    }
+    };
   }
 
   render() {
     return (
-    <div className="ColorCard">
-      <h4 className="ColorCard__h4" style={{backgroundColor: this.state.hex}}>{ this.state.hex }</h4>
-    </div>
-    )
+      <div className='ColorCard' style={{ backgroundColor: this.state.hex }}>
+        <h4 className='ColorCard__h4'>{this.state.hex}</h4>
+        {this.state.selected ? (
+          <IoMdCheckboxOutline />
+        ) : (
+          <MdCheckBoxOutlineBlank />
+        )}
+      </div>
+    );
   }
 }
 
