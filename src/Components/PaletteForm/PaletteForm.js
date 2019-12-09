@@ -32,6 +32,12 @@ export class PaletteForm extends Component {
         <select className='PaletteForm__select--project'>
           {/* map through projects in App state */}
         </select>
+        <button className='PaletteForm__button--cancel' type='button'>
+          Cancel
+        </button>
+        <button className='PaletteForm__button--save' type='button'>
+          Save
+        </button>
       </div>
     );
   }

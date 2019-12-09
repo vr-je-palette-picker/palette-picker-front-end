@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Nav from '../Nav/Nav.js';
+import HomeNav from '../HomeNav/HomeNav.js';
+import ProjectNav from '../ProjectNav/ProjectNav.js';
 import Container from './../Container/Container.js';
 import ProjectContainer from './../ProjectContainer/ProjectContainer.js';
 import './App.scss';
@@ -69,9 +72,30 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Nav />
-        {/* { projects } */}
-        <Container hexCodes={this.state.hexCodes} />
+        <Route
+          exact
+          path='/'
+          render={() => (
+            <>
+              <Nav>
+                <HomeNav />
+              </Nav>
+              <Container hexCodes={this.state.hexCodes} />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path='/projects'
+          render={() => (
+            <>
+              <Nav>
+                <ProjectNav />
+              </Nav>
+              <Container hexCodes={projects} />
+            </>
+          )}
+        />
       </div>
     );
   }
