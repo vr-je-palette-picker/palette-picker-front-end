@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Nav from '../Nav/Nav.js';
 import HomeNav from '../HomeNav/HomeNav.js';
 import ProjectNav from '../ProjectNav/ProjectNav.js';
@@ -12,7 +12,6 @@ class App extends Component {
     super();
     this.state = {
       hexCodes: [],
-      // projects: []
       projects: [
         {
           project_name: 'project 1',
@@ -65,37 +64,41 @@ class App extends Component {
     this.setState({ hexCodes });
   };
 
-  render() {
-    const projects = this.state.projects.map(project => {
-      return <ProjectContainer project={project} />;
+  createProjectContainers = () => {
+    return this.state.projects.map((project, index) => {
+      return <ProjectContainer key={index} project={project} />;
     });
+  };
 
+  render() {
     return (
       <div className='App'>
-        <Route
-          exact
-          path='/'
-          render={() => (
-            <>
-              <Nav>
-                <HomeNav />
-              </Nav>
-              <Container hexCodes={this.state.hexCodes} />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path='/projects'
-          render={() => (
-            <>
-              <Nav>
-                <ProjectNav />
-              </Nav>
-              <Container hexCodes={projects} />
-            </>
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <>
+                <Nav>
+                  <HomeNav />
+                </Nav>
+                <Container hexCodes={this.state.hexCodes} />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path='/projects'
+            render={() => (
+              <>
+                <Nav>
+                  <ProjectNav projects={this.state.projects} />
+                </Nav>
+                <Container hexCodes={this.createProjectContainers()} />
+              </>
+            )}
+          />
+        </Switch>
       </div>
     );
   }
