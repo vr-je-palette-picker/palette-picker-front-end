@@ -5,6 +5,7 @@ import HomeNav from '../HomeNav/HomeNav.js';
 import ProjectNav from '../ProjectNav/ProjectNav.js';
 import Container from './../Container/Container.js';
 import ProjectContainer from './../ProjectContainer/ProjectContainer.js';
+import { getAllProjects } from '../../apiCalls/apiCalls';
 import './App.scss';
 
 class App extends Component {
@@ -52,8 +53,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // this.fetchProjects();
     this.randomizeHex();
   }
+
+  fetchProjects = async () => {
+    let projects = await getAllProjects();
+    this.setState({ projects });
+  };
 
   randomizeHex = () => {
     const hexCodes = [];
