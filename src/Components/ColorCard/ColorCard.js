@@ -12,8 +12,8 @@ class ColorCard extends Component {
 
   render() {
     return (
-    <div>
-      <h4 style={{backgroundColor: this.state.hex}}>{ this.state.hex }</h4>
+    <div className="ColorCard">
+      <h4 className="ColorCard__h4" style={{backgroundColor: this.state.hex}}>{ this.state.hex }</h4>
     </div>
     )
   }

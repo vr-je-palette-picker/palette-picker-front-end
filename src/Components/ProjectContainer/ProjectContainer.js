@@ -3,17 +3,16 @@ import PaletteCard from './../PaletteCard/PaletteCard.js';
 
 const ProjectContainer = ({ project }) => {
   const paletteCards = project.palettes.map(palette => {
-    return (
-      <PaletteCard palette={palette}/>
-    )
-  })
+    return <PaletteCard palette={palette} />;
+  });
   return (
-    <section>
-      <h2>{project.project_name}</h2>
-      { paletteCards }
-      </section>
-  )
-
-}
+    <section className='ProjectContainer'>
+      <h2 className='ProjectContainer__h2--project-name'>
+        {project.project_name}
+      </h2>
+      {paletteCards}
+    </section>
+  );
+};
 
 export default ProjectContainer;
