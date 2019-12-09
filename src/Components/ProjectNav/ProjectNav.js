@@ -13,6 +13,7 @@ export class ProjectNav extends Component {
   render() {
     return (
       <div className='ProjectNav'>
+        <h1 className='ProjectNav__h1--title'>Palette Picker</h1>
         <button className='ProjectNav__button--new-project'>New Project</button>
         <select className='ProjectNav__select--project'>
           {this.createProjectSelectOptions()}

@@ -8,6 +8,7 @@ export class HomeNav extends Component {
   render() {
     return (
       <div className='HomeNav'>
+        <h1 className='HomeNav__h1--title'>Palette Picker</h1>
         <IoMdRefresh />
         <GiSave />
         <FaRegFolder />

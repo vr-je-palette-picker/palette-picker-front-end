@@ -86,9 +86,7 @@ class App extends Component {
             path='/'
             render={() => (
               <>
-                <Nav>
-                  <HomeNav />
-                </Nav>
+                <HomeNav />
                 <Container hexCodes={this.state.hexCodes} />
               </>
             )}
@@ -98,9 +96,7 @@ class App extends Component {
             path='/projects'
             render={() => (
               <>
-                <Nav>
-                  <ProjectNav projects={this.state.projects} />
-                </Nav>
+                <ProjectNav projects={this.state.projects} />
                 <Container hexCodes={this.createProjectContainers()} />
               </>
             )}
