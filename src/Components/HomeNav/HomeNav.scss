@@ -1,4 +1,21 @@
 .HomeNav {
+  display: flex;
   height: 15vh;
+  justify-content: space-between;
   width: 100vw;
+}
+.HomeNav__h1--title {
+  font-size: 60px;
+  margin: 15px 10px 0px 10px;
+  padding-left: 15px;
+}
+.HomeNav__div--icon-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 30px 10px 10px;
+  width: 20%;
+}
+.HomeNav__icon {
+  height: 60px;
+  width: 60px;
 }
