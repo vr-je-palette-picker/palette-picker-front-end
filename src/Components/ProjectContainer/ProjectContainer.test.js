@@ -4,10 +4,9 @@ import ProjectContainer from './ProjectContainer';
 
 describe('ProjectContainer', () => {
   let wrapper;
-  let project =
-    {
-      palettes: [{}, {}, {}]
-    }
+  let project = {
+    palettes: [{}, {}, {}]
+  };
   let key = 1;
 
   beforeEach(() => {
