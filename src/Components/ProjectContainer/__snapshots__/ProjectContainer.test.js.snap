@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectContainer should match the snapshot 1`] = `
+<section
+  className="ProjectContainer"
+>
+  <h2
+    className="ProjectContainer__h2--project-name"
+  />
+  <section
+    className="ProjectContainer__section"
+  >
+    <PaletteCard
+      key="0"
+      palette={Object {}}
+    />
+    <PaletteCard
+      key="1"
+      palette={Object {}}
+    />
+    <PaletteCard
+      key="2"
+      palette={Object {}}
+    />
+  </section>
+</section>
+`;

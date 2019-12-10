@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteCard should match the snapshot 1`] = `
+<div
+  className="PaletteCard"
+>
+  <p
+    className="PaletteCard__p--palette-name"
+  >
+    Testing 123
+  </p>
+  <div
+    className="PaletteCard__div--color"
+    style={
+      Object {
+        "backgroundColor": "000000",
+      }
+    }
+  >
+    000000
+  </div>
+  <div
+    className="PaletteCard__div--color"
+    style={
+      Object {
+        "backgroundColor": "00FF00",
+      }
+    }
+  >
+    00FF00
+  </div>
+  <div
+    className="PaletteCard__div--color"
+    style={
+      Object {
+        "backgroundColor": "999999",
+      }
+    }
+  >
+    999999
+  </div>
+  <div
+    className="PaletteCard__div--color"
+    style={
+      Object {
+        "backgroundColor": "990099",
+      }
+    }
+  >
+    990099
+  </div>
+  <div
+    className="PaletteCard__div--color"
+    style={
+      Object {
+        "backgroundColor": "FFFFFF",
+      }
+    }
+  >
+    FFFFFF
+  </div>
+</div>
+`;

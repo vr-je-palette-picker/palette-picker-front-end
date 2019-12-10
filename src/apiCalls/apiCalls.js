@@ -2,7 +2,8 @@ require('dotenv').config();
 
 export const getAllProjects = async () => {
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}projects`
+    `https://vr-je-palette-picker-api.herokuapp.com/api/v1/`
+    // `${process.env.REACT_APP_PRODUCTION_URL}projects`
   );
   if (!response.ok) {
     throw new Error('Could not retrieve projects, please try again later.');

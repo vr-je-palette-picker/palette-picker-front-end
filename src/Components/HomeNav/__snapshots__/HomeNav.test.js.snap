@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeNav should match the snapshot 1`] = `
+<div
+  className="HomeNav"
+>
+  <h1
+    className="HomeNav__h1--title"
+  >
+    Palette Picker
+  </h1>
+  <IoMdRefresh />
+  <GiSave />
+  <Link
+    to="/projects"
+  >
+    <FaRegFolder />
+  </Link>
+</div>
+`;

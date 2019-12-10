@@ -12,14 +12,18 @@ class ColorCard extends Component {
     };
   }
 
+  handleClick = () => {
+    this.setState({ selected: !this.state.selected });
+  };
+
   render() {
     return (
       <div className='ColorCard' style={{ backgroundColor: this.state.hex }}>
         <h4 className='ColorCard__h4'>{this.state.hex}</h4>
         {this.state.selected ? (
-          <IoMdCheckboxOutline />
+          <IoMdCheckboxOutline onClick={this.handleClick} />
         ) : (
-          <MdCheckBoxOutlineBlank />
+          <MdCheckBoxOutlineBlank onClick={this.handleClick} />
         )}
       </div>
     );

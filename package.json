@@ -16,8 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --forceExit",
-    "test:all": "CI=true react-scripts test",
+    "test": "react-scripts test",
     "test:watch": "react-scripts test --verbose",
     "eject": "react-scripts eject"
   },
