@@ -55,7 +55,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchProjects();
-    this.randomizeHex();
+    // this.randomizeHex();
   }
 
   fetchProjects = async () => {
@@ -63,14 +63,14 @@ class App extends Component {
     await this.setState({ projects });
   };
 
-  randomizeHex = () => {
-    const hexCodes = [];
-    let i;
-    for (i = 0; i < 5; i++) {
-      hexCodes.push('#' + Math.floor(Math.random() * 16777215).toString(16));
-    }
-    this.setState({ hexCodes });
-  };
+  // randomizeHex = () => {
+  //   const hexCodes = [];
+  //   let i;
+  //   for (i = 0; i < 5; i++) {
+  //     hexCodes.push('#' + Math.floor(Math.random() * 16777215).toString(16));
+  //   }
+  //   this.setState({ hexCodes });
+  // };
 
   createProjectContainers = () => {
     return this.state.projects.map((project, index) => {
@@ -88,7 +88,7 @@ class App extends Component {
             render={() => (
               <>
                 <HomeNav />
-                <Container hexCodes={this.state.hexCodes} />
+                <Container />
               </>
             )}
           />
