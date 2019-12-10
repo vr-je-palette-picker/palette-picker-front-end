@@ -30,35 +30,4 @@ describe('getAllProjects', () => {
       });
     });
   });
-
-  // it('should call fetch with the correct URL', () => {
-  //   window.fetch = jest.fn().mockImplementation(() => {
-  //     return Promise.resolve({
-  //       ok: true,
-  //       json: () => Promise.resolve(mockResponse)
-  //     });
-  //   });
-  //   getAllMovies();
-
-  //   expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/films/');
-  // });
-
-  // it('Should return an object with 7 movie objects', () => {
-  //   window.fetch = jest.fn().mockImplementation(() => {
-  //     return Promise.resolve({
-  //       ok: true,
-  //       json: () => Promise.resolve(mockResponse)
-  //     });
-  //   });
-  //   getAllMovies().then(movies => expect(movies).toEqual(mockResponse));
-  // });
-
-  // it('should return catch error if promise rejects', () => {
-  //   window.fetch = jest.fn().mockImplementation(() => {
-  //     return Promise.reject({
-  //       ok: false
-  //     });
-  //   });
-  //   getAllMovies().catch(e => expect(e).toMatch('error'));
-  // });
 });
