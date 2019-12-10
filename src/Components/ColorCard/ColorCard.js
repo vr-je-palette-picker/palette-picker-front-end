@@ -4,26 +4,15 @@ import { IoMdCheckboxOutline } from 'react-icons/io';
 import './ColorCard.scss';
 
 class ColorCard extends Component {
-  constructor({ hex }) {
-    super();
-    this.state = {
-      selected: false,
-      hex: hex
-    };
-  }
-
-  handleClick = () => {
-    this.setState({ selected: !this.state.selected });
-  };
-
   render() {
+    const { color, hex, locked, toggleLock } = this.props;
     return (
-      <div className='ColorCard' style={{ backgroundColor: this.state.hex }}>
-        <h4 className='ColorCard__h4'>{this.state.hex}</h4>
-        {this.state.selected ? (
-          <IoMdCheckboxOutline onClick={this.handleClick} />
+      <div className='ColorCard' id={hex} style={{ backgroundColor: hex }}>
+        <h4 className='ColorCard__h4'>{hex}</h4>
+        {locked ? (
+          <IoMdCheckboxOutline onClick={() => toggleLock(hex, color)} />
         ) : (
-          <MdCheckBoxOutlineBlank onClick={this.handleClick} />
+          <MdCheckBoxOutlineBlank onClick={() => toggleLock(hex, color)} />
         )}
       </div>
     );
