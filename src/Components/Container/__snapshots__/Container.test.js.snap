@@ -8,24 +8,39 @@ exports[`Container should match the snapshot 1`] = `
     className="Container__section"
   >
     <ColorCard
-      hex=""
+      color="color_1"
+      hex="#e61ea2"
       key="0"
+      locked={false}
+      toggleLock={[Function]}
     />
     <ColorCard
-      hex=""
+      color="color_2"
+      hex="#f5d57f"
       key="1"
+      locked={false}
+      toggleLock={[Function]}
     />
     <ColorCard
-      hex=""
+      color="color_3"
+      hex="#580f42"
       key="2"
+      locked={false}
+      toggleLock={[Function]}
     />
     <ColorCard
-      hex=""
+      color="color_4"
+      hex="#94678d"
       key="3"
+      locked={false}
+      toggleLock={[Function]}
     />
     <ColorCard
-      hex=""
+      color="color_5"
+      hex="#9dabd4"
       key="4"
+      locked={false}
+      toggleLock={[Function]}
     />
   </section>
 </main>
