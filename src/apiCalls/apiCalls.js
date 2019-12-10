@@ -1,7 +1,9 @@
-const baseUrl = 'https://vr-je-palette-picker-api.herokuapp.com/api/v1/';
+require('dotenv').config();
 
 export const getAllProjects = async () => {
-  const response = await fetch(`${baseUrl}projects`);
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}projects`
+  );
   if (!response.ok) {
     throw new Error('Could not retrieve projects, please try again later.');
   }
@@ -10,7 +12,9 @@ export const getAllProjects = async () => {
 };
 
 export const getProject = async id => {
-  const response = await fetch(`${baseUrl}projects/${id}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}projects/${id}`
+  );
   if (!response.ok) {
     throw new Error('Could not retrieve project, please try again later.');
   }
@@ -19,7 +23,9 @@ export const getProject = async id => {
 };
 
 export const getPalettesInProject = async id => {
-  const response = await fetch(`${baseUrl}palettes/${id}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}palettes/${id}`
+  );
   if (!response.ok) {
     throw new Error(
       'Could not retrieve palettes within project, please try again later.'
@@ -30,7 +36,9 @@ export const getPalettesInProject = async id => {
 };
 
 export const getPalette = async id => {
-  const response = await fetch(`${baseUrl}palette/${id}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}palette/${id}`
+  );
   if (!response.ok) {
     throw new Error('Could not retrieve palette, please try again later.');
   }
@@ -46,7 +54,10 @@ export const createNewProject = async project => {
       'Content-Type': 'application/json'
     }
   };
-  const response = await fetch(`${baseUrl}projects}`, options);
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}projects}`,
+    options
+  );
   const data = await response.json();
   return data;
 };
@@ -60,7 +71,7 @@ export const createNewPalette = async palette => {
     }
   };
   const response = await fetch(
-    `${baseUrl}palettes/${palette.project_id}`,
+    `${process.env.REACT_APP_PRODUCTION_URL}palettes/${palette.project_id}`,
     options
   );
   const data = await response.json();
