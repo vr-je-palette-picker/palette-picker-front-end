@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container should match the snapshot 1`] = `
+<main
+  className="Container"
+>
+  <section
+    className="Container__section"
+  >
+    <ColorCard
+      hex=""
+      key="0"
+    />
+    <ColorCard
+      hex=""
+      key="1"
+    />
+    <ColorCard
+      hex=""
+      key="2"
+    />
+    <ColorCard
+      hex=""
+      key="3"
+    />
+    <ColorCard
+      hex=""
+      key="4"
+    />
+  </section>
+</main>
+`;

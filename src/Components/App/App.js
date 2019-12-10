@@ -59,8 +59,9 @@ class App extends Component {
   }
 
   fetchProjects = async () => {
-    let projects = await getAllProjects();
-    await this.setState({ projects });
+    // let projects = await getAllProjects();
+    // console.log('projects', projects)
+    // await this.setState({ projects });
   };
 
   randomizeHex = () => {

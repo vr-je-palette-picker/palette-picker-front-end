@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { IoMdRefresh } from 'react-icons/io';
 import { GiSave } from 'react-icons/gi';
 import { FaRegFolder } from 'react-icons/fa';
@@ -11,7 +12,9 @@ export class HomeNav extends Component {
         <h1 className='HomeNav__h1--title'>Palette Picker</h1>
         <IoMdRefresh />
         <GiSave />
-        <FaRegFolder />
+        <Link to='/projects'>
+          <FaRegFolder />
+        </Link>
       </div>
     );
   }

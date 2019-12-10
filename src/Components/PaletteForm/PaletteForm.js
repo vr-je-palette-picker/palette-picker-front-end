@@ -42,3 +42,5 @@ export class PaletteForm extends Component {
     );
   }
 }
+
+export default PaletteForm;

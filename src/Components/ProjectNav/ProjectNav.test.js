@@ -4,9 +4,12 @@ import ProjectNav from './ProjectNav';
 
 describe('ProjectNav', () => {
   let wrapper;
+  let projects = [
+    {}, {}, {}
+  ]
 
   beforeEach(() => {
-    wrapper = shallow(<ProjectNav />)
+    wrapper = shallow(<ProjectNav projects={projects}/>)
   })
 
   it('should match the snapshot', () => {
