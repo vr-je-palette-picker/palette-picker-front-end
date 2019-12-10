@@ -4,7 +4,8 @@ import HomeNav from '../HomeNav/HomeNav.js';
 import ProjectNav from '../ProjectNav/ProjectNav.js';
 import Container from './../Container/Container.js';
 import ProjectContainer from './../ProjectContainer/ProjectContainer.js';
-import { getAllProjects } from '../../apiCalls/apiCalls';
+import { getAllProjects } from '../../utils/apiCalls/apiCalls';
+import { cleanData } from '../../utils/helpers/helpers';
 import './App.scss';
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ class App extends Component {
 
   fetchProjects = async () => {
     let projects = await getAllProjects();
+    // cleanData(projects);
     await this.setState({ projects });
   };
 

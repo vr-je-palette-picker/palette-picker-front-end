@@ -10,14 +10,15 @@ export class HomeNav extends Component {
     return (
       <div className='HomeNav'>
         <h1 className='HomeNav__h1--title'>Palette Picker</h1>
-        <IoMdRefresh />
-        <GiSave />
-        <Link to='/projects'>
-          <FaRegFolder />
-        </Link>
+        <div className='HomeNav__div--icon-container'>
+          <IoMdRefresh className='HomeNav__icon' />
+          <GiSave className='HomeNav__icon' />
+          <Link to='/projects'>
+            <FaRegFolder className='HomeNav__icon' />
+          </Link>
+        </div>
       </div>
     );
   }
 }
-
 export default HomeNav;
