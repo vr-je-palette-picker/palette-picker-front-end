@@ -12,65 +12,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      hexCodes: [],
       projects: []
-      // [
-      //   {
-      //     project_name: 'project 1',
-      //     palettes: [
-      //       {
-      //         palette_name: 'cool',
-      //         color_1: '#3D3935',
-      //         color_2: '#009DDC',
-      //         color_3: '#F26430',
-      //         color_4: '#F1F1F1',
-      //         color_5: '#009B72'
-      //       },
-      //       {
-      //         palette_name: 'wowzah',
-      //         color_1: '#3D3935',
-      //         color_2: '#009DDC',
-      //         color_3: '#F26430',
-      //         color_4: '#F1F1F1',
-      //         color_5: '#009B72'
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     project_name: 'project TWO',
-      //     palettes: [
-      //       {
-      //         palette_name: 'neat',
-      //         color_1: '#3D3935',
-      //         color_2: '#009DDC',
-      //         color_3: '#F26430',
-      //         color_4: '#F1F1F1',
-      //         color_5: '#009B72'
-      //       }
-      //     ]
-      //   }
-      // ]
     };
   }
 
   componentDidMount() {
     this.fetchProjects();
-    // this.randomizeHex();
   }
 
   fetchProjects = async () => {
     let projects = await getAllProjects();
     await this.setState({ projects });
   };
-
-  // randomizeHex = () => {
-  //   const hexCodes = [];
-  //   let i;
-  //   for (i = 0; i < 5; i++) {
-  //     hexCodes.push('#' + Math.floor(Math.random() * 16777215).toString(16));
-  //   }
-  //   this.setState({ hexCodes });
-  // };
 
   createProjectContainers = () => {
     return this.state.projects.map((project, index) => {
