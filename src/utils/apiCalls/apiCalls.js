@@ -11,9 +11,20 @@ export const getAllProjects = async () => {
   return data;
 };
 
+export const getAllPalettes = async () => {
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palettes`
+  );
+  if (!response.ok) {
+    throw new Error('Could not retrieve palettes, please try again later.');
+  }
+  const data = await response.json();
+  return data;
+};
+
 export const getProject = async id => {
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}projects/${id}`
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`
   );
   if (!response.ok) {
     throw new Error('Could not retrieve project, please try again later.');
@@ -24,7 +35,7 @@ export const getProject = async id => {
 
 export const getPalettesInProject = async id => {
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}palettes/${id}`
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palettes/${id}`
   );
   if (!response.ok) {
     throw new Error(
@@ -37,7 +48,7 @@ export const getPalettesInProject = async id => {
 
 export const getPalette = async id => {
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}palette/${id}`
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`
   );
   if (!response.ok) {
     throw new Error('Could not retrieve palette, please try again later.');
@@ -55,7 +66,7 @@ export const createNewProject = async project => {
     }
   };
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}projects}`,
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects}`,
     options
   );
   const data = await response.json();
@@ -71,7 +82,7 @@ export const createNewPalette = async palette => {
     }
   };
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}palettes/${palette.project_id}`,
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palettes/${palette.project_id}`,
     options
   );
   const data = await response.json();
