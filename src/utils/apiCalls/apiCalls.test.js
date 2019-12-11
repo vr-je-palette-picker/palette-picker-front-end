@@ -161,32 +161,32 @@ describe('createNewPalette', () => {
     });
   });
 
-  // it ('should fetch with all of the correct arguments', () => {
-  //   const newPalette = {
-  //     id: 1,
-  //     palette_name: "Option 1",
-  //     color_1: "#192435",
-  //     color_2: "#678589",
-  //     color_3: "#77ACA2",
-  //     color_4: "#EDF3F3",
-  //     color_5: "#C59563",
-  //     prect_id: 1
-  // };
+  it ('should fetch with all of the correct arguments', () => {
+    const newPalette = {
+      id: 1,
+      palette_name: "Option 1",
+      color_1: "#192435",
+      color_2: "#678589",
+      color_3: "#77ACA2",
+      color_4: "#EDF3F3",
+      color_5: "#C59563",
+      project_id: 1
+  };
   
-  //   const url = `${baseUrl}/api/v1/palettes/1`;
+    const url = `${baseUrl}/api/v1/palettes/1`;
 
-  //   const expected = {
-  //     method: 'POST',
-  //     body: JSON.stringify(newPalette),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }
+    const expected = {
+      method: 'POST',
+      body: JSON.stringify(newPalette),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
 
-  //   createNewPalette(newPalette)
+    createNewPalette(newPalette)
 
-  //   expect(window.fetch).toHaveBeenCalledWith(url, expected);
-  // });
+    expect(window.fetch).toHaveBeenCalledWith(url, expected);
+  });
 
   it ('should post a new project', () => {
     const url = `${baseUrl}/api/v1/projects/1`;
