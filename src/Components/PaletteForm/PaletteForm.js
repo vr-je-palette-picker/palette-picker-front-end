@@ -14,7 +14,7 @@ export class PaletteForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  makeSelectOptions = () => {
+  createSelectOptions = () => {
     const { projects } = this.props;
     return projects.map((project, index) => {
       return (
@@ -23,6 +23,14 @@ export class PaletteForm extends Component {
         </option>
       );
     });
+  };
+
+  createNewPalette = () => {
+    const { newPalette, findProjectByName } = this.props;
+    let name = this.state.paletteName;
+    let projectName = this.state.project;
+    let foundId = findProjectByName(projectName);
+    newPalette(name, foundId);
   };
 
   cancelNewPalette = () => {
@@ -59,7 +67,8 @@ export class PaletteForm extends Component {
             this.state.project ? this.state.project : 'Please select a project'
           }
         >
-          {this.makeSelectOptions()}
+          <option value=''>Please select</option>
+          {this.createSelectOptions()}
         </select>
         <button
           className='PaletteForm__button--cancel'
@@ -68,7 +77,11 @@ export class PaletteForm extends Component {
         >
           Cancel
         </button>
-        <button className='PaletteForm__button--save' type='button'>
+        <button
+          className='PaletteForm__button--save'
+          type='button'
+          onClick={this.createNewPalette}
+        >
           Save
         </button>
       </div>
