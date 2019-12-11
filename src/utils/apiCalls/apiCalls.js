@@ -6,7 +6,7 @@ export const getAllProjects = async () => {
     throw new Error('Could not retrieve projects, please try again later.');
   }
   const data = await response.json();
-
+console.log('in getAllProjects')
   return data;
 };
 
@@ -93,6 +93,38 @@ export const createNewPalette = async palette => {
 
   return data;
 };
+
+export const updateProjectName = async id => {
+  const options = {
+    method: 'PATCH',
+    body: JSON.stringify({
+      completed: true
+    }),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+  const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`, options);
+  const data = response.json();
+
+  return data;
+}
+
+export const updatePalette = async id => {
+  const options = {
+    method: 'PATCH',
+    body: JSON.stringify({
+      completed: true
+    }),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+  const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`, options);
+  const data = response.json();
+
+  return data;
+}
 
 export const deleteProject = async id => {
   const options = {
