@@ -21,9 +21,12 @@ export class ProjectNav extends Component {
     this.setState({input: e.target.value});
   };
 
-  createNew = () => {
-    createNewProject({project_name: this.state.input});
+  createNew = async () => {
+    const { fetchProjects } = this.props;
+
+    await createNewProject({project_name: this.state.input});
     this.setState({input: ''});
+    await fetchProjects()
   };
 
   render() {
