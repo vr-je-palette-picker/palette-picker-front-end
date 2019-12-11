@@ -173,8 +173,48 @@ describe('getPalette', () => {
 });
 
 describe('getPalette', () => {
-  
-})
+  const mockResponse = {
+    id: 3,
+    palette_name: 'Ocean',
+    color_1: '#020216',
+    color_2: '#00042B',
+    color_3: '#001E64',
+    color_4: '#006CAD',
+    color_5: '#00C0FA',
+    project_id: 2
+  };
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should fetch with the correct arguments', () => {
+    const url = `${baseUrl}/api/v1/palette/3`;
+
+    getPalette(mockResponse.id);
+
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+
+  it('should return an array with a palette object', () => {
+    expect(getPalette(mockResponse.id)).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error if getPalette property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getPalette(-5)).rejects.toEqual(
+      Error('Could not retrieve palette, please try again later.')
+    );
+  });
+});
 
 describe('getProject', () => {
   const mockResponse = { id: 7, project_name: 'New Project' };
@@ -270,62 +310,62 @@ describe('getPalettesInProject', () => {
 });
 
 describe('getPalettesInProject', () => {
-    const mockResponse = [
-      {
-        id: 10,
-        palette_name: 'Option 1',
-        color_1: '#192435',
-        color_2: '#678589',
-        color_3: '#77ACA2',
-        color_4: '#EDF3F3',
-        color_5: '#C59563',
-        project_id: 4
-      },
-      {
-        id: 11,
-        palette_name: 'Option 2',
-        color_1: '#D8E2DC',
-        color_2: '#FFE5D9',
-        color_3: '#D1A6AE',
-        color_4: '#9D8189',
-        color_5: '#432F32',
-        project_id: 4
-      }
-    ];
-    beforeEach(() => {
-      window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve(mockResponse)
-        });
+  const mockResponse = [
+    {
+      id: 10,
+      palette_name: 'Option 1',
+      color_1: '#192435',
+      color_2: '#678589',
+      color_3: '#77ACA2',
+      color_4: '#EDF3F3',
+      color_5: '#C59563',
+      project_id: 4
+    },
+    {
+      id: 11,
+      palette_name: 'Option 2',
+      color_1: '#D8E2DC',
+      color_2: '#FFE5D9',
+      color_3: '#D1A6AE',
+      color_4: '#9D8189',
+      color_5: '#432F32',
+      project_id: 4
+    }
+  ];
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
       });
     });
+  });
 
-    it('should fetch with the correct arguments', () => {
-      const url = `${baseUrl}/api/v1/palettes/4`;
+  it('should fetch with the correct arguments', () => {
+    const url = `${baseUrl}/api/v1/palettes/4`;
 
-      getPalettesInProject(4);
+    getPalettesInProject(4);
 
-      expect(window.fetch).toHaveBeenCalledWith(url);
-    });
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
 
-    it('should return an array of palettes in a single project', () => {
-      expect(getPalettesInProject(4)).resolves.toEqual(mockResponse);
-    });
+  it('should return an array of palettes in a single project', () => {
+    expect(getPalettesInProject(4)).resolves.toEqual(mockResponse);
+  });
 
-    it('should return an error if getPalettesInProject property ok is false', () => {
-      window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve({
-          ok: false
-        });
+  it('should return an error if getPalettesInProject property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
       });
-      expect(getPalettesInProject()).rejects.toEqual(
-        Error(
-          'Could not retrieve palettes within project, please try again later.'
-        )
-      );
     });
-})
+    expect(getPalettesInProject()).rejects.toEqual(
+      Error(
+        'Could not retrieve palettes within project, please try again later.'
+      )
+    );
+  });
+});
 
 describe('createNewProject', () => {
   const mockResponse = { id: 7 };
