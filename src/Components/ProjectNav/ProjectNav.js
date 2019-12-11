@@ -33,7 +33,7 @@ export class ProjectNav extends Component {
   render() {
     return (
       <div className='ProjectNav'>
-        <h1>Palette Picker</h1>
+        <h1 className='ProjectNav__h1--title'>Palette Picker</h1>
         <div className='ProjectNav__div--add-container'>
           <input placeholder='Enter Project Name' id='new-project-input' onChange={(e) => this.handleChange(e)}/>
           <p className='ProjectNav__button--new-project' onClick={() => this.createNew()}>Add New Project</p>
