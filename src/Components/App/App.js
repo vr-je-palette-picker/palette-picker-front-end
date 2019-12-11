@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import HomeNav from '../HomeNav/HomeNav.js';
 import ProjectNav from '../ProjectNav/ProjectNav.js';
 import Container from './../Container/Container.js';
 import ProjectPage from '../ProjectPage/ProjectPage.js';
@@ -37,7 +36,6 @@ class App extends Component {
             path='/'
             render={() => (
               <>
-                <HomeNav />
                 <Container />
               </>
             )}

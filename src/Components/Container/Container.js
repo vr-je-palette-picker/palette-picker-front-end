@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HomeNav from '../HomeNav/HomeNav.js';
 import ColorCard from './../ColorCard/ColorCard.js';
 import './Container.scss';
 
@@ -77,6 +78,9 @@ class Container extends Component {
   render() {
     return (
       <main className='Container'>
+        <HomeNav
+          randomColors={this.generateRandomColors}
+        />
         <section className='Container__section'>
           {this.generateColorCards([
             this.state.color_1,
