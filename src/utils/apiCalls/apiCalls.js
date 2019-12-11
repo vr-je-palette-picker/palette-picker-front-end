@@ -1,5 +1,3 @@
-// require('dotenv').config();
-
 export const getAllProjects = async () => {
   const response = await fetch(
     `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects`
@@ -8,6 +6,7 @@ export const getAllProjects = async () => {
     throw new Error('Could not retrieve projects, please try again later.');
   }
   const data = await response.json();
+
   return data;
 };
 
@@ -19,6 +18,7 @@ export const getAllPalettes = async () => {
     throw new Error('Could not retrieve palettes, please try again later.');
   }
   const data = await response.json();
+
   return data;
 };
 
@@ -30,6 +30,7 @@ export const getProject = async id => {
     throw new Error('Could not retrieve project, please try again later.');
   }
   const data = await response.json();
+
   return data;
 };
 
@@ -43,6 +44,7 @@ export const getPalettesInProject = async id => {
     );
   }
   const data = await response.json();
+
   return data;
 };
 
@@ -54,6 +56,7 @@ export const getPalette = async id => {
     throw new Error('Could not retrieve palette, please try again later.');
   }
   const data = await response.json();
+
   return data;
 };
 
@@ -66,10 +69,11 @@ export const createNewProject = async project => {
     }
   };
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects}`,
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects`,
     options
   );
   const data = await response.json();
+
   return data;
 };
 
@@ -86,5 +90,34 @@ export const createNewPalette = async palette => {
     options
   );
   const data = await response.json();
+
   return data;
 };
+
+export const deleteProject = async id => {
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  
+  const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`, options)
+  const data = response.json();
+  
+  return data;
+}
+
+export const deletePalette = async id => {
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  
+  const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`, options)
+  const data = response.json();
+  
+  return data;
+}
