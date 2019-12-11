@@ -17,6 +17,8 @@ exports[`PaletteForm should match the snapshot 1`] = `
   </label>
   <input
     className="PaletteForm__input--palette-name"
+    name="paletteName"
+    onChange={[Function]}
     placeholder="Palette Name"
     type="text"
     value=""
@@ -29,15 +31,34 @@ exports[`PaletteForm should match the snapshot 1`] = `
   </label>
   <select
     className="PaletteForm__select--project"
-  />
+    onChange={[Function]}
+    value="Please select a project"
+  >
+    <option
+      value=""
+    >
+      Please select
+    </option>
+    <option
+      key="0"
+    />
+    <option
+      key="1"
+    />
+    <option
+      key="2"
+    />
+  </select>
   <button
     className="PaletteForm__button--cancel"
+    onClick={[Function]}
     type="button"
   >
     Cancel
   </button>
   <button
     className="PaletteForm__button--save"
+    onClick={[Function]}
     type="button"
   >
     Save
