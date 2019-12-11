@@ -46,8 +46,6 @@ describe('getAllProjects', () => {
   });
 });
 
-
-// ALL PALETTES
 describe('getAllPalettes', () => {
   const mockResponse = [
     {
@@ -101,7 +99,7 @@ describe('getAllPalettes', () => {
 });
 
 describe('createNewProject', () => {
-  const mockResponse = { id: 7}
+  const mockResponse = { id: 7 };
 
   beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(() => {
@@ -123,9 +121,9 @@ describe('createNewProject', () => {
       headers: {
         'Content-Type': 'application/json'
       }
-    }
+    };
 
-    createNewProject(newProject)
+    createNewProject(newProject);
 
     expect(window.fetch).toHaveBeenCalledWith(url, options);
   });
@@ -152,7 +150,7 @@ describe('createNewProject', () => {
 });
 
 describe('createNewPalette', () => {
-  const mockResponse = { id: 7}
+  const mockResponse = { id: 7 };
 
   beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(() => {
@@ -212,15 +210,13 @@ describe('createNewPalette', () => {
 });
 
 describe('deleteProject', () => {
-  beforeEach(() => {
+  it ('should be called with the correct arguments', () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true
       });
     });
-  });
 
-  it('should be called with the correct arguments', () => {
     const projectToDelete = { project_name: 'A Project', id: 8 };
   
     const url = `${baseUrl}/api/v1/projects/${projectToDelete.id}`;
@@ -235,6 +231,19 @@ describe('deleteProject', () => {
     deleteProject(projectToDelete.id)
 
     expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+
+  it ('should return an error with an unsuccessful delete', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+        statusText: "Error. Please try again."
+      })
+    });
+
+    const url = `${baseUrl}/api/v1/projects/-1`;
+
+    expect(deleteProject(url)).rejects.toEqual(Error('Error. Please try again.'))
   });
 });
 
@@ -271,6 +280,19 @@ describe('deletePalette', () => {
     deletePalette(paletteToDelete.id)
 
     expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+
+  it ('should return an error with an unsuccessful delete', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+        statusText: "Error. Please try again."
+      })
+    });
+
+    const url = `${baseUrl}/api/v1/palettes/-1`;
+
+    expect(deletePalette(url)).rejects.toEqual(Error('Error. Please try again.'))
   });
 });
 
