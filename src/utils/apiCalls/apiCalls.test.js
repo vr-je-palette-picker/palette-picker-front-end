@@ -210,15 +210,18 @@ describe('createNewPalette', () => {
 });
 
 describe('deleteProject', () => {
-  it ('should be called with the correct arguments', () => {
+  let projectToDelete;
+  beforeEach(() => {
+    projectToDelete = { project_name: 'A Project', id: 8 };
+    
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
-        ok: true
+        ok: true,
       });
     });
+  });
 
-    const projectToDelete = { project_name: 'A Project', id: 8 };
-  
+  it ('should be called with the correct arguments', () => {
     const url = `${baseUrl}/api/v1/projects/${projectToDelete.id}`;
 
     const options = {
@@ -231,6 +234,19 @@ describe('deleteProject', () => {
     deleteProject(projectToDelete.id)
 
     expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+
+  it ('should delete project', () => {
+    const url = `${baseUrl}/api/v1/projects/${projectToDelete.id}`;
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    deleteProject(projectToDelete.id);
+    expect(window.fetch).toHaveBeenCalledWith(url, options)
   });
 
   it ('should return an error with an unsuccessful delete', () => {
@@ -282,6 +298,19 @@ describe('deletePalette', () => {
     expect(window.fetch).toHaveBeenCalledWith(url, options);
   });
 
+  it ('should delete palette', () => {
+    const url = `${baseUrl}/api/v1/palette/8`;
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    deletePalette(8);
+    expect(window.fetch).toHaveBeenCalledWith(url, options)
+  });
+
   it ('should return an error with an unsuccessful delete', () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
@@ -295,36 +324,3 @@ describe('deletePalette', () => {
     expect(deletePalette(url)).rejects.toEqual(Error('Error. Please try again.'))
   });
 });
-
-
-
-//************************************ */
-// A SINGLE PROJECT
-// describe('getProject', () => {
-//   const mockResponse = {
-//       id: 2,
-//       project_name: 'Nature',
-//       created_at: '2019-12-06T20:35:56.736Z',
-//       updated_at: '2019-12-06T20:35:56.736Z'
-//     }
-
-//   beforeEach(() => {
-//     window.fetch = jest.fn().mockImplementation(() => {
-//       return Promise.resolve({
-//         ok: true,
-//         json: () => Promise.resolve(mockResponse)
-//       });
-//     });
-//   });
-
-//   it ('should fetch with the correct url', () => {
-//     window.fetch.mockClear();
-//     const url = `${baseUrl}/api/v1/projects${mockResponse.id}`;
-    
-//     getProject(url);
-
-//     expect(window.fetch).toHaveBeenCalledWith(url);
-//   });
-// });
-
-
