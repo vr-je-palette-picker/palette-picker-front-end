@@ -23,14 +23,21 @@ export class ProjectNav extends Component {
 
   createNew = () => {
     createNewProject({project_name: this.state.input});
+    this.clearInputs();
   };
+
+  clearInputs = () => {
+    this.setState({input: ''});
+  }
 
   render() {
     return (
       <div className='ProjectNav'>
-        <h1 className='ProjectNav__h1--title'>Palette Picker</h1>
-        <input placeholder='Enter Project Name' id='new-project-input' onChange={(e) => this.handleChange(e)}/>
-        <p className='ProjectNav__button--new-project' onClick={() => this.createNew()}>Add New Project</p>
+        <h1>Palette Picker</h1>
+        <div className='ProjectNav__div--add-container'>
+          <input placeholder='Enter Project Name' id='new-project-input' onChange={(e) => this.handleChange(e)}/>
+          <p className='ProjectNav__button--new-project' onClick={() => this.createNew()}>Add New Project</p>
+        </div>
         {/* <select className='ProjectNav__select--project'>
           {this.createProjectSelectOptions()}
         </select> */}

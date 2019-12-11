@@ -1,4 +1,27 @@
 .ProjectNav {
+  display: flex;
+  flex-direction: row;
   height: 15vh;
+  justify-content: space-between;
+  min-height: 70px;
   width: 100vw;
+    h1 {
+      margin-left: 20px;
+    }
+}
+
+.ProjectNav__div--add-container {
+  align-self: flex-end;
+  display: flex;
+  height: 20%;
+    input {
+      height: 100%;
+      margin-right: 10px;
+    }
+    p {
+      cursor: pointer;
+      margin: 0;
+    }
+  margin-right: 20px;
+
 }
