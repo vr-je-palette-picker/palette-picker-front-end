@@ -37,6 +37,7 @@ describe('getAllProjects', () => {
 
   it ('should fetch with the correct url', () => {
     const url = `${baseUrl}/api/v1/projects`;
+    
     getAllProjects(url);
 
     expect(window.fetch).toHaveBeenCalledWith(url);
@@ -90,8 +91,72 @@ describe('getAllPalettes', () => {
 
   it ('should fetch with the correct url', () => {
     const url = `${baseUrl}/api/v1/palettes`;
+    
     getAllPalettes(url);
 
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 });
+
+describe('createNewProject', () => {
+  const mockResponse = { id: 7}
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse.id)
+      });
+    });
+  });
+  
+  it ('should fetch with correct arguments', () => {
+    const newProject = { project_name: 'New Project' };
+  
+    const url = `${baseUrl}/api/v1/projects`;
+
+    const expected = {
+      method: 'POST',
+      body: JSON.stringify(newProject),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    createNewProject(newProject)
+
+    expect(window.fetch).toHaveBeenCalledWith(url, expected);
+  });
+
+});
+
+
+// A SINGLE PROJECT
+// describe('getProject', () => {
+//   const mockResponse = {
+//       id: 2,
+//       project_name: 'Nature',
+//       created_at: '2019-12-06T20:35:56.736Z',
+//       updated_at: '2019-12-06T20:35:56.736Z'
+//     }
+
+//   beforeEach(() => {
+//     window.fetch = jest.fn().mockImplementation(() => {
+//       return Promise.resolve({
+//         ok: true,
+//         json: () => Promise.resolve(mockResponse)
+//       });
+//     });
+//   });
+
+//   it ('should fetch with the correct url', () => {
+//     window.fetch.mockClear();
+//     const url = `${baseUrl}/api/v1/projects${mockResponse.id}`;
+    
+//     getProject(url);
+
+//     expect(window.fetch).toHaveBeenCalledWith(url);
+//   });
+// });
+
+

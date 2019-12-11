@@ -69,7 +69,7 @@ export const createNewProject = async project => {
     }
   };
   const response = await fetch(
-    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects}`,
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects`,
     options
   );
   const data = await response.json();
