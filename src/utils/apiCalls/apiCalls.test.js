@@ -40,9 +40,24 @@ describe('getAllProjects', () => {
   it('should fetch with the correct url', () => {
     const url = `${baseUrl}/api/v1/projects`;
 
-    getAllProjects(url);
+    getAllProjects();
 
     expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+
+  it('should return an array of projects when getAllProjects is called', () => {
+    expect(getAllProjects()).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error if fetchAllProjects property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getAllProjects()).rejects.toEqual(
+      Error('Could not retrieve projects, please try again later.')
+    );
   });
 });
 
@@ -92,15 +107,29 @@ describe('getAllPalettes', () => {
   it('should fetch with the correct url', () => {
     const url = `${baseUrl}/api/v1/palettes`;
 
-    getAllPalettes(url);
+    getAllPalettes();
 
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
+
+  it('should return an array of palettes when getAllPalettes is called', () => {
+    expect(getAllPalettes()).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error if getAllPalettes property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getAllPalettes()).rejects.toEqual(
+      Error('Could not retrieve palettes, please try again later.')
+    );
+  });
 });
 
-describe('createNewProject', () => {
-  const mockResponse = { id: 7 };
-
+describe('getProject', () => {
+  const mockResponse = { id: 7, project_name: 'New Project' };
   beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
@@ -110,11 +139,47 @@ describe('createNewProject', () => {
     });
   });
 
+  it('should fetch with the correct arguments', () => {
+    const url = `${baseUrl}/api/v1/projects/7`;
+
+    getProject(mockResponse.id);
+
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+
+  it('should return a project object with project_name and id', () => {
+    expect(getProject(mockResponse.id)).resolves.toEqual(mockResponse.id);
+  });
+
+  it('should return an error if getProject property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getProject()).rejects.toEqual(
+      Error('Could not retrieve project, please try again later.')
+    );
+  });
+});
+
+describe('createNewProject', () => {
+  const mockResponse = { id: 7 };
+  let newProject;
+  const url = `${baseUrl}/api/v1/projects`;
+
+  beforeEach(() => {
+    newProject = { project_name: 'New Project' };
+
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse.id)
+      });
+    });
+  });
+
   it('should fetch with correct arguments', () => {
-    const newProject = { project_name: 'New Project' };
-
-    const url = `${baseUrl}/api/v1/projects`;
-
     const options = {
       method: 'POST',
       body: JSON.stringify(newProject),
@@ -128,24 +193,19 @@ describe('createNewProject', () => {
     expect(window.fetch).toHaveBeenCalledWith(url, options);
   });
 
-  it('should post a new project', () => {
-    const url = `${baseUrl}/api/v1/projects`;
-
-    createNewProject(url).then(results =>
+  it('should return the new project id upon successful post', () => {
+    createNewProject(newProject).then(results =>
       expect(results).toEqual(mockResponse.id)
     );
   });
 
-  it('should return an error with unsuccessful post', () => {
+  it('should return an error if response is not ok', () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: false
       });
     });
-
-    const url = `${baseUrl}/api/v1/projects`;
-
-    expect(createNewProject(url)).rejects.toEqual(
+    expect(createNewProject(newProject)).rejects.toEqual(
       Error('Could not create new project, please try again later.')
     );
   });
@@ -153,18 +213,10 @@ describe('createNewProject', () => {
 
 describe('createNewPalette', () => {
   const mockResponse = { id: 7 };
+  let newPalette;
 
   beforeEach(() => {
-    window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockResponse.id)
-      });
-    });
-  });
-
-  it('should fetch with all of the correct arguments', () => {
-    const newPalette = {
+    newPalette = {
       id: 1,
       palette_name: 'Option 1',
       color_1: '#192435',
@@ -175,6 +227,15 @@ describe('createNewPalette', () => {
       project_id: 1
     };
 
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse.id)
+      });
+    });
+  });
+
+  it('should fetch with all of the correct arguments', () => {
     const url = `${baseUrl}/api/v1/palettes/1`;
 
     const expected = {
@@ -191,9 +252,7 @@ describe('createNewPalette', () => {
   });
 
   it('should post a new project', async () => {
-    const url = `${baseUrl}/api/v1/projects/1`;
-
-    let results = await createNewPalette(url);
+    let results = await createNewPalette(newPalette);
     expect(results).toEqual(mockResponse.id);
   });
 
@@ -204,9 +263,7 @@ describe('createNewPalette', () => {
       });
     });
 
-    const url = `${baseUrl}/api/v1/projects`;
-
-    expect(createNewPalette(url)).rejects.toEqual(
+    expect(createNewPalette(newPalette)).rejects.toEqual(
       Error('Could not create new palette, please try again later.')
     );
   });
@@ -259,9 +316,9 @@ describe('deleteProject', () => {
       });
     });
 
-    const url = `${baseUrl}/api/v1/projects/-1`;
+    let projectToFailDelete = { project_name: 'A Project', id: -80 };
 
-    expect(deleteProject(url)).rejects.toEqual(
+    expect(deleteProject(projectToFailDelete)).rejects.toEqual(
       Error('Could not delete project, please try again later.')
     );
   });
@@ -285,7 +342,7 @@ describe('deletePalette', () => {
       color_3: '#77ACA2',
       color_4: '#EDF3F3',
       color_5: '#C59563',
-      prect_id: 1
+      project_id: 1
     };
 
     const url = `${baseUrl}/api/v1/palette/${paletteToDelete.id}`;
@@ -321,10 +378,18 @@ describe('deletePalette', () => {
         ok: false
       });
     });
+    const paletteToFailDelete = {
+      id: 1,
+      palette_name: 'Option 1',
+      color_1: '#192435',
+      color_2: '#678589',
+      color_3: '#77ACA2',
+      color_4: '#EDF3F3',
+      color_5: '#C59563',
+      project_id: -100
+    };
 
-    const url = `${baseUrl}/api/v1/palettes/-1`;
-
-    expect(deletePalette(url)).rejects.toEqual(
+    expect(deletePalette(paletteToFailDelete)).rejects.toEqual(
       Error('Could not delete palette, please try again later.')
     );
   });

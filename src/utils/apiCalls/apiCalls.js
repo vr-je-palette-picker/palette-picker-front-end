@@ -115,9 +115,7 @@ export const deleteProject = async id => {
   if (!response.ok) {
     throw new Error('Could not delete project, please try again later.');
   }
-  const data = await response.json();
-
-  return data;
+  return response;
 };
 
 export const deletePalette = async id => {
@@ -135,7 +133,5 @@ export const deletePalette = async id => {
   if (!response.ok) {
     throw new Error('Could not delete palette, please try again later.');
   }
-  const data = await response.json();
-
-  return data;
+  return response;
 };
