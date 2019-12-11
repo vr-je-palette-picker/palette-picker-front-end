@@ -76,10 +76,12 @@ class Container extends Component {
   };
 
   render() {
+    const { showModal } = this.props;
     return (
       <main className='Container'>
         <HomeNav
           randomColors={this.generateRandomColors}
+          showModal={showModal}
         />
         <section className='Container__section'>
           {this.generateColorCards([

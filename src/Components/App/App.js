@@ -3,16 +3,20 @@ import { Route, Switch } from 'react-router-dom';
 import ProjectNav from '../ProjectNav/ProjectNav.js';
 import Container from './../Container/Container.js';
 import ProjectPage from '../ProjectPage/ProjectPage.js';
+import PaletteForm from '../PaletteForm/PaletteForm.js';
+import ReactModal from 'react-modal';
 import { getAllProjects, getAllPalettes } from '../../utils/apiCalls/apiCalls';
 import { cleanData } from '../../utils/helpers/helpers';
 import './App.scss';
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root');
 require('dotenv').config();
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      projects: []
+      projects: [],
+      showForm: false
     };
   }
 
@@ -27,6 +31,10 @@ class App extends Component {
     await this.setState({ projects: cleanedData });
   };
 
+  updateFormModalState = () => {
+    this.setState({ showForm: !this.state.showForm });
+  };
+
   render() {
     return (
       <div className='App'>
@@ -36,7 +44,7 @@ class App extends Component {
             path='/'
             render={() => (
               <>
-                <Container />
+                <Container showModal={this.updateFormModalState} />
               </>
             )}
           />
@@ -51,6 +59,13 @@ class App extends Component {
             )}
           />
         </Switch>
+        <ReactModal
+          isOpen={this.state.showForm}
+          className='PaletteForm'
+          overlayClassName='PaletteFormOverlay'
+        >
+          <PaletteForm />
+        </ReactModal>
       </div>
     );
   }

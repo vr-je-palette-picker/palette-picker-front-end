@@ -7,13 +7,13 @@ import './HomeNav.scss';
 
 export class HomeNav extends Component {
   render() {
-    const { randomColors } = this.props;
+    const { randomColors, showModal } = this.props;
     return (
       <div className='HomeNav'>
         <h1 className='HomeNav__h1--title'>Palette Picker</h1>
         <div className='HomeNav__div--icon-container'>
           <IoMdRefresh className='HomeNav__icon' onClick={randomColors} />
-          <GiSave className='HomeNav__icon' />
+            <GiSave onClick={showModal} className='HomeNav__icon' />
           <Link to='/projects'>
             <FaRegFolder className='HomeNav__icon' />
           </Link>
