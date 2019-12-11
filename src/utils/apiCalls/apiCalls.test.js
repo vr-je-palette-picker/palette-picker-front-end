@@ -7,6 +7,7 @@ import {
   createNewProject,
   createNewPalette,
   deleteProject,
+  deletePalette
 } from './apiCalls';
 
 const baseUrl = 'https://vr-je-palette-picker-api.herokuapp.com'
@@ -237,7 +238,45 @@ describe('deleteProject', () => {
   });
 });
 
+describe('deletePalette', () => {
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true
+      });
+    });
+  });
 
+  it('should be called with the correct arguments', () => {
+    const paletteToDelete = {
+          id: 1,
+          palette_name: "Option 1",
+          color_1: "#192435",
+          color_2: "#678589",
+          color_3: "#77ACA2",
+          color_4: "#EDF3F3",
+          color_5: "#C59563",
+          prect_id: 1
+      };
+  
+    const url = `${baseUrl}/api/v1/palette/${paletteToDelete.id}`;
+
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    deletePalette(paletteToDelete.id)
+
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+});
+
+
+
+//************************************ */
 // A SINGLE PROJECT
 // describe('getProject', () => {
 //   const mockResponse = {
