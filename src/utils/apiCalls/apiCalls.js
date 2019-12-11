@@ -1,6 +1,6 @@
 export const getAllProjects = async () => {
   const response = await fetch(
-    `${process.env.REACT_APP_DEV}/api/v1/projects`
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects`
   );
   if (!response.ok) {
     throw new Error('Could not retrieve projects, please try again later.');
@@ -12,7 +12,7 @@ export const getAllProjects = async () => {
 
 export const getAllPalettes = async () => {
   const response = await fetch(
-    `${process.env.REACT_APP_DEV}/api/v1/palettes`
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palettes`
   );
   if (!response.ok) {
     throw new Error('Could not retrieve palettes, please try again later.');
