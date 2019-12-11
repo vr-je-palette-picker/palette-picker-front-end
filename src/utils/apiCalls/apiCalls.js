@@ -133,6 +133,9 @@ export const deletePalette = async id => {
   if (!response.ok) {
     throw new Error('Could not delete palette, please try again later.');
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Fix sad path tests to fetch a project instead of a url
   return response;
 };
