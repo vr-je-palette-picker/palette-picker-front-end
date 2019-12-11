@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import ProjectContainer from '../ProjectContainer/ProjectContainer.js';
+import { Link } from 'react-router-dom';
+import { TiArrowBackOutline } from 'react-icons/ti';
 import './ProjectPage.scss';
 
 class ProjectPage extends Component {
   createProjectContainers = () => {
-    const { projects } = this.props;
+    const { projects, fetchProjects } = this.props;
     return projects.map((project, index) => {
-      return <ProjectContainer key={index} project={project} />;
+      return <ProjectContainer key={index} project={project} fetchProjects={fetchProjects}/>;
     });
   };
 
   render() {
-    return <div className='ProjectPage'>{this.createProjectContainers()}</div>;
+    return (
+    <main>
+      <p>
+        <Link to='/'>
+          <TiArrowBackOutline />
+          Back to Palette Picker
+        </Link>
+        </p>
+    <div 
+      className='ProjectPage'>{this.createProjectContainers()}
+    </div>
+    </main>
+    )
   }
 }
 
