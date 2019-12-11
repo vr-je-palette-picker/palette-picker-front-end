@@ -1,10 +1,14 @@
 import React from 'react';
+import { TiDeleteOutline } from 'react-icons/ti'
 import './PaletteCard.scss'
 
 const PaletteCard = ({ palette }) => {
   return (
     <div className='PaletteCard'>
-      <p className='PaletteCard__p--palette-name'>{palette.palette_name}</p>
+      <header className='PaletteCard__header'>
+        <p className='PaletteCard__p--palette-name'>{palette.palette_name}</p>
+        <TiDeleteOutline />
+      </header>
       <div
         className='PaletteCard__div--color'
         style={{ backgroundColor: palette.color_1 }}
