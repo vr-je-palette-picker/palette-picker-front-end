@@ -4,44 +4,88 @@ exports[`Container should match the snapshot 1`] = `
 <main
   className="Container"
 >
+  <HomeNav
+    randomColors={[Function]}
+    showModal={[Function]}
+  />
   <section
     className="Container__section"
   >
     <ColorCard
       color="color_1"
-      hex="#a658f8"
+      hex="#F709A7"
       key="0"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_2"
-      hex="#627e71"
+      hex="#EF0DEC"
       key="1"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_3"
-      hex="#9284b6"
+      hex="#B04D8E"
       key="2"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_4"
-      hex="#dc64ab"
+      hex="#ABBDFF"
       key="3"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_5"
-      hex="#89db8b"
+      hex="#13142B"
       key="4"
       locked={false}
       toggleLock={[Function]}
     />
+    <Modal
+      ariaHideApp={true}
+      bodyOpenClassName="ReactModal__Body--open"
+      className="PaletteForm"
+      closeTimeoutMS={0}
+      isOpen={false}
+      onRequestClose={[Function]}
+      overlayClassName="PaletteFormOverlay"
+      parentSelector={[Function]}
+      portalClassName="ReactModalPortal"
+      role="dialog"
+      shouldCloseOnEsc={true}
+      shouldCloseOnOverlayClick={true}
+      shouldFocusAfterRender={true}
+      shouldReturnFocusAfterClose={true}
+      style={
+        Object {
+          "content": Object {
+            "bottom": 100,
+            "left": 300,
+            "position": "fixed",
+            "right": 300,
+            "top": 100,
+          },
+          "overlay": Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "fixed",
+            "right": 0,
+            "top": 0,
+          },
+        }
+      }
+    >
+      <PaletteForm
+        close={[Function]}
+        findProjectByName={[Function]}
+        newPalette={[Function]}
+      />
+    </Modal>
   </section>
 </main>
 `;
