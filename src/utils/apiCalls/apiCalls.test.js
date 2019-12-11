@@ -190,12 +190,11 @@ describe('createNewPalette', () => {
     expect(window.fetch).toHaveBeenCalledWith(url, expected);
   });
 
-  it('should post a new project', () => {
+  it('should post a new project', async () => {
     const url = `${baseUrl}/api/v1/projects/1`;
 
-    createNewPalette(url).then(results =>
-      expect(results).toEqual(mockResponse.id)
-    );
+    let results = await createNewPalette(url);
+    expect(results).toEqual(mockResponse.id);
   });
 
   it('should return an error with unsuccessful post', () => {

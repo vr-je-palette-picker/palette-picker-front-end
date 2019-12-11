@@ -23,10 +23,14 @@ class App extends Component {
   }
 
   fetchProjects = async () => {
-    let projects = await getAllProjects();
-    let palettes = await getAllPalettes();
-    let cleanedData = cleanData(projects, palettes);
-    await this.setState({ projects: cleanedData });
+    try {
+      let projects = await getAllProjects();
+      let palettes = await getAllPalettes();
+      let cleanedData = cleanData(projects, palettes);
+      await this.setState({ projects: cleanedData });
+    } catch(error) {
+      throw new Error(error)
+    }
   };
 
   render() {
