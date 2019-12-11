@@ -3,12 +3,18 @@ import { TiDeleteOutline } from 'react-icons/ti';
 import { deletePalette } from './../../utils/apiCalls/apiCalls.js';
 import './PaletteCard.scss';
 
-const PaletteCard = ({ palette }) => {
+const PaletteCard = ({ palette, fetchProjects }) => {
+
+  const handleDelete = async (id) => {
+    await deletePalette(id)
+    return await fetchProjects()
+  };
+
   return (
     <div className='PaletteCard'>
       <header className='PaletteCard__header'>
         <p className='PaletteCard__p--palette-name'>{palette.palette_name}</p>
-        <TiDeleteOutline onClick={() => deletePalette(palette.id)}/>
+        <TiDeleteOutline onClick={() => handleDelete(palette.id)}/>
       </header>
       <div
         className='PaletteCard__div--color'

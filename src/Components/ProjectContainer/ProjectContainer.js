@@ -5,12 +5,13 @@ import { deleteProject } from './../../utils/apiCalls/apiCalls.js'
 
 const ProjectContainer = ({ project, fetchProjects }) => {
   const paletteCards = project.palettes.map((palette, index) => {
-    return <PaletteCard key={index} palette={palette} />;
+    return <PaletteCard key={index} palette={palette} fetchProjects={fetchProjects}/>;
   });
+
   const handleDelete = async (id) => {
     await deleteProject(id)
     return await fetchProjects()
-  }
+  };
 
   return (
     <section className='ProjectContainer'>
