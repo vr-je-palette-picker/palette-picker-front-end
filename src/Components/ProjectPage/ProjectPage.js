@@ -6,7 +6,6 @@ class ProjectPage extends Component {
   createProjectContainers = () => {
     const { projects } = this.props;
     return projects.map((project, index) => {
-      console.log(project)
       return <ProjectContainer key={index} project={project} />;
     });
   };
