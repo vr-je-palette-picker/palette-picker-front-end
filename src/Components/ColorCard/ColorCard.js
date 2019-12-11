@@ -8,12 +8,14 @@ class ColorCard extends Component {
     const { color, hex, locked, toggleLock } = this.props;
     return (
       <div className='ColorCard' id={hex} style={{ backgroundColor: hex }}>
-        <h4 className='ColorCard__h4'>{hex}</h4>
-        {locked ? (
-          <IoMdCheckboxOutline onClick={() => toggleLock(hex, color)} />
-        ) : (
-          <MdCheckBoxOutlineBlank onClick={() => toggleLock(hex, color)} />
-        )}
+        <footer className='ColorCard__footer'>
+          {locked ? (
+            <IoMdCheckboxOutline className='ColorCard__lock--icon' onClick={() => toggleLock(hex, color)} />
+            ) : (
+              <MdCheckBoxOutlineBlank className='ColorCard__lock--icon' onClick={() => toggleLock(hex, color)} />
+              )}
+          <h4 className='ColorCard__h4'>{hex}</h4>
+        </footer>
       </div>
     );
   }

@@ -2,3 +2,18 @@
   height: 85vh;
   width: 20vw;
 }
+
+.ColorCard__footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ColorCard__h4 {
+  font-size: 45px;
+  margin: 300px 10px 10px 10px;
+}
+
+.ColorCard__lock--icon {
+  height: 40px;
+  width: 40px;
+}
