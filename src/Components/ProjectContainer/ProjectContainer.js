@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdDeleteForever } from 'react-icons/md';
 import PaletteCard from './../PaletteCard/PaletteCard.js';
 
 const ProjectContainer = ({ project }) => {
@@ -7,9 +8,12 @@ const ProjectContainer = ({ project }) => {
   });
   return (
     <section className='ProjectContainer'>
-      <h2 className='ProjectContainer__h2--project-name'>
-        {project.project}
-      </h2>
+      <header className='ProjectContainer__header'>
+        <h2 className='ProjectContainer__h2--project-name'>
+          {project.project}
+        </h2>
+        <MdDeleteForever className='ProjectContainer__header--delete-icon'/>
+      </header>
       <section className='ProjectContainer__section'>{paletteCards}</section>
     </section>
   );

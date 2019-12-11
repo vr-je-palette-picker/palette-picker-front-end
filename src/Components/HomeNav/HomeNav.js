@@ -7,7 +7,7 @@ import './HomeNav.scss';
 
 export class HomeNav extends Component {
   render() {
-    const { randomColors, showModal } = this.props;
+    const { randomColors, showModal} = this.props;
     return (
       <div className='HomeNav'>
         <h1 className='HomeNav__h1--title'>Palette Picker</h1>

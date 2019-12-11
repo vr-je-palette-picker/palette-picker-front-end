@@ -38,7 +38,7 @@ class App extends Component {
             path='/'
             render={() => (
               <>
-                <Container projects={this.state.projects} />
+                <Container projects={this.state.projects}/>
               </>
             )}
           />
