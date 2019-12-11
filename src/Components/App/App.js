@@ -48,7 +48,7 @@ class App extends Component {
             render={() => (
               <>
                 <ProjectNav projects={this.state.projects} />
-                <ProjectPage projects={this.state.projects} />
+                <ProjectPage projects={this.state.projects} fetchProjects={this.fetchProjects}/>
               </>
             )}
           />
