@@ -143,13 +143,71 @@ describe('createNewProject', () => {
       })
     });
 
-
     const url = `${baseUrl}/api/v1/projects`;
 
     expect(createNewProject(url)).rejects.toEqual(Error("Error. Please try again."));
-  })
-
+  });
 });
+
+describe('createNewPalette', () => {
+  const mockResponse = { id: 7}
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse.id)
+      });
+    });
+  });
+
+  // it ('should fetch with all of the correct arguments', () => {
+  //   const newPalette = {
+  //     id: 1,
+  //     palette_name: "Option 1",
+  //     color_1: "#192435",
+  //     color_2: "#678589",
+  //     color_3: "#77ACA2",
+  //     color_4: "#EDF3F3",
+  //     color_5: "#C59563",
+  //     prect_id: 1
+  // };
+  
+  //   const url = `${baseUrl}/api/v1/palettes/1`;
+
+  //   const expected = {
+  //     method: 'POST',
+  //     body: JSON.stringify(newPalette),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }
+
+  //   createNewPalette(newPalette)
+
+  //   expect(window.fetch).toHaveBeenCalledWith(url, expected);
+  // });
+
+  it ('should post a new project', () => {
+    const url = `${baseUrl}/api/v1/projects/1`;
+
+    createNewPalette(url)
+    .then(results => expect(results).toEqual(mockResponse.id))
+  });
+
+  it('should return an error with unsuccessful post', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+        statusText: "Error. Please try again."
+      })
+    });
+
+    const url = `${baseUrl}/api/v1/projects`;
+
+    expect(createNewPalette(url)).rejects.toEqual(Error("Error. Please try again."));
+  });
+})
 
 
 // A SINGLE PROJECT
