@@ -135,6 +135,20 @@ describe('createNewProject', () => {
     .then(results => expect(results).toEqual(mockResponse.id))
   });
 
+  it('should return an error with unsuccessful post', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false,
+        statusText: "Error. Please try again."
+      })
+    });
+
+
+    const url = `${baseUrl}/api/v1/projects`;
+
+    expect(createNewProject(url)).rejects.toEqual(Error("Error. Please try again."));
+  })
+
 });
 
 
