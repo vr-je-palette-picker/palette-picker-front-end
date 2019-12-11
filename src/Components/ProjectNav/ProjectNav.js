@@ -18,14 +18,12 @@ export class ProjectNav extends Component {
   // };
 
   handleChange = (e) => {
-    this.setState({input: e.target.value})
-  }
+    this.setState({input: e.target.value});
+  };
 
   createNew = () => {
-    //grab state
-    //pass through with invoked createNewProject
-    console.log('oh yeah')
-  }
+    createNewProject({project_name: this.state.input});
+  };
 
   render() {
     return (
