@@ -13,15 +13,22 @@
 .ProjectNav__div--add-container {
   align-self: flex-end;
   display: flex;
-  height: 20%;
+  height: 30%;
     input {
+      font-family: 'Dosis', sans-serif;
+      font-size: 15px;
       height: 100%;
       margin-right: 10px;
     }
     p {
+      border: black solid 1px;
       cursor: pointer;
+      height: 100%;
       margin: 0;
+      padding: 1px 10px;
     }
   margin-right: 20px;
-
 }
+
+.ProjectNav__button--new-project { transition: all .2s ease-in-out; }
+.ProjectNav__button--new-project:hover { transform: scale(1.1); }
