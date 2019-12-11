@@ -3,6 +3,7 @@ import HomeNav from '../HomeNav/HomeNav.js';
 import ColorCard from './../ColorCard/ColorCard.js';
 import ReactModal from 'react-modal';
 import PaletteForm from '../PaletteForm/PaletteForm.js';
+import { createNewPalette } from '../../utils/apiCalls/apiCalls.js';
 import './Container.scss';
 
 class Container extends Component {
@@ -82,6 +83,28 @@ class Container extends Component {
     });
   };
 
+  findProjectByName = projectName => {
+    const { projects } = this.props;
+    let foundProjectId = projects.find(project => {
+      return project.project === projectName;
+    });
+    return foundProjectId;
+  };
+
+  createNewPaletteObject = async (projectName, project_id) => {
+    let newPalette = {
+      palette_name: projectName,
+      project_id: project_id.id,
+      color_1: this.state.color_1.hex_code,
+      color_2: this.state.color_2.hex_code,
+      color_3: this.state.color_3.hex_code,
+      color_4: this.state.color_4.hex_code,
+      color_5: this.state.color_5.hex_code
+    };
+    let posted = await createNewPalette(newPalette);
+    return posted;
+  };
+
   render() {
     const { projects } = this.props;
     return (
@@ -123,6 +146,8 @@ class Container extends Component {
             <PaletteForm
               projects={projects}
               close={this.updateFormModalState}
+              newPalette={this.createNewPaletteObject}
+              findProjectByName={this.findProjectByName}
             />
           </ReactModal>
         </section>
