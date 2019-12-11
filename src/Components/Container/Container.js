@@ -111,7 +111,7 @@ class Container extends Component {
   };
 
   render() {
-    const { projects } = this.props;
+    const { projects, fetchProjects } = this.props;
     return (
       <main className='Container'>
         <HomeNav
@@ -149,6 +149,7 @@ class Container extends Component {
             overlayClassName='PaletteFormOverlay'
           >
             <PaletteForm
+              fetchProjects={fetchProjects}
               projects={projects}
               close={this.updateFormModalState}
               newPalette={this.createNewPaletteObject}

@@ -16,6 +16,7 @@ export class PaletteForm extends Component {
 
   createSelectOptions = () => {
     const { projects } = this.props;
+
     return projects.map((project, index) => {
       return (
         <option value={project.project} key={index}>
@@ -25,16 +26,20 @@ export class PaletteForm extends Component {
     });
   };
 
-  createNewPalette = () => {
-    const { newPalette, findProjectByName } = this.props;
+  createNewPalette = async () => {
+    const { newPalette, findProjectByName, fetchProjects } = this.props;
     let name = this.state.paletteName;
     let projectName = this.state.project;
     let foundId = findProjectByName(projectName);
-    newPalette(name, foundId);
+
+    await newPalette(name, foundId);
+    await fetchProjects();
+    this.cancelNewPalette();
   };
 
   cancelNewPalette = () => {
     const { close } = this.props;
+
     this.setState({ paletteName: '', project: '' });
     close();
   };
