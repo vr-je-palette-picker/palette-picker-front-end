@@ -121,35 +121,3 @@ export const deletePalette = async id => {
   
   return data;
 }
-
-// export const updateProjectName = async id => {
-//   const options = {
-//     method: 'PATCH',
-//     body: JSON.stringify({
-//       completed: true
-//     }),
-//     headers: {
-//       'Content-type': 'application/json'
-//     }
-//   }
-//   const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`, options);
-//   const data = response.json();
-
-//   return data;
-// }
-
-// export const updatePalette = async id => {
-//   const options = {
-//     method: 'PATCH',
-//     body: JSON.stringify({
-//       completed: true
-//     }),
-//     headers: {
-//       'Content-type': 'application/json'
-//     }
-//   }
-//   const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`, options);
-//   const data = response.json();
-
-//   return data;
-// }
