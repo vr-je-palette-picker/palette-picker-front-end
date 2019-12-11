@@ -128,6 +128,13 @@ describe('createNewProject', () => {
     expect(window.fetch).toHaveBeenCalledWith(url, expected);
   });
 
+  it ('should post a new project', () => {
+    const url = `${baseUrl}/api/v1/projects`;
+
+    createNewProject(url)
+    .then(results => expect(results).toEqual(mockResponse.id))
+  });
+
 });
 
 
