@@ -5,7 +5,8 @@ import {
   getPalettesInProject,
   getPalette,
   createNewProject,
-  createNewPalette
+  createNewPalette,
+  deleteProject,
 } from './apiCalls';
 
 const baseUrl = 'https://vr-je-palette-picker-api.herokuapp.com'
@@ -115,7 +116,7 @@ describe('createNewProject', () => {
   
     const url = `${baseUrl}/api/v1/projects`;
 
-    const expected = {
+    const options = {
       method: 'POST',
       body: JSON.stringify(newProject),
       headers: {
@@ -125,7 +126,7 @@ describe('createNewProject', () => {
 
     createNewProject(newProject)
 
-    expect(window.fetch).toHaveBeenCalledWith(url, expected);
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
   });
 
   it ('should post a new project', () => {
@@ -207,7 +208,34 @@ describe('createNewPalette', () => {
 
     expect(createNewPalette(url)).rejects.toEqual(Error("Error. Please try again."));
   });
-})
+});
+
+describe('deleteProject', () => {
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true
+      });
+    });
+  });
+
+  it('should be called with the correct arguments', () => {
+    const projectToDelete = { project_name: 'A Project', id: 8 };
+  
+    const url = `${baseUrl}/api/v1/projects/${projectToDelete.id}`;
+
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    deleteProject(projectToDelete.id)
+
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+});
 
 
 // A SINGLE PROJECT
