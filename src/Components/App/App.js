@@ -47,7 +47,7 @@ class App extends Component {
             path='/projects'
             render={() => (
               <>
-                <ProjectNav projects={this.state.projects} />
+                <ProjectNav projects={this.state.projects}  fetchProjects={this.fetchProjects} />
                 <ProjectPage projects={this.state.projects} fetchProjects={this.fetchProjects} />
               </>
             )}
