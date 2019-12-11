@@ -103,9 +103,10 @@ export const deleteProject = async id => {
   }
   
   const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`, options)
-  const data = response.json();
-  
-  return data;
+  if (!response.ok) {
+    throw new Error('Could not delete project, please try again later.')
+  }
+  return response;
 }
 
 export const deletePalette = async id => {
@@ -117,7 +118,9 @@ export const deletePalette = async id => {
   }
   
   const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`, options)
-  const data = response.json();
+  if (!response.ok) {
+    throw new Error('Could not delete palette, please try again later.')
+  }
   
-  return data;
+  return response;
 }
