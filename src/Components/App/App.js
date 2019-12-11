@@ -38,7 +38,7 @@ class App extends Component {
             path='/'
             render={() => (
               <>
-                <Container projects={this.state.projects}/>
+                <Container projects={this.state.projects} fetchProjects={this.fetchProjects}/>
               </>
             )}
           />
@@ -48,7 +48,7 @@ class App extends Component {
             render={() => (
               <>
                 <ProjectNav projects={this.state.projects} />
-                <ProjectPage projects={this.state.projects} fetchProjects={this.fetchProjects}/>
+                <ProjectPage projects={this.state.projects} fetchProjects={this.fetchProjects} />
               </>
             )}
           />
