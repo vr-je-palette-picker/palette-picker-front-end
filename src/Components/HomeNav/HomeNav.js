@@ -6,6 +6,7 @@ import { FaRegFolder } from 'react-icons/fa';
 import './HomeNav.scss';
 
 export class HomeNav extends Component {
+
   render() {
     const { randomColors, showModal} = this.props;
     return (
