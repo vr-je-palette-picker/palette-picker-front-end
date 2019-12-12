@@ -38,9 +38,10 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
 
 ## Tech Stack
 
-![1_4_n18FH8hRrvlLyRufD1sQ](https://user-images.githubusercontent.com/48900496/70728150-1b8fe300-1cbe-11ea-99ba-5d531c4ac4b3.png)
-![download](https://user-images.githubusercontent.com/48900496/70728152-1cc11000-1cbe-11ea-9ae2-34b645f3f3d8.png)
-![05dca500-f010-11e9-9588-a96554294e4e](https://user-images.githubusercontent.com/48900496/70728155-1e8ad380-1cbe-11ea-9ac7-74112330280a.png)
+
+![05dca500-f010-11e9-9588-a96554294e4e](https://user-images.githubusercontent.com/48900496/70728278-5c87f780-1cbe-11ea-8c50-f5da30954008.png)
+![download](https://user-images.githubusercontent.com/48900496/70728279-5c87f780-1cbe-11ea-8256-c445e08dbdbd.png)
+![1_4_n18FH8hRrvlLyRufD1sQ](https://user-images.githubusercontent.com/48900496/70728280-5c87f780-1cbe-11ea-9571-65f4447c2c54.png)
 
 
 ## Directions to run application locally
