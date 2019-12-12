@@ -1,8 +1,32 @@
 .PaletteForm {
-  font-family: 'Dosis', sans-serif;
+  align-items: center;
   background-color: white;
   display: flex;
   flex-direction: column;
+  font-family: 'Dosis', sans-serif;
+  height: 80%;
   justify-content: space-evenly;
-  
+}
+
+.PaletteForm__h2--title,
+.PaletteForm__label--palette-name,
+.PaletteForm__input--palette-name,
+.PaletteForm__label--project,
+.PaletteForm__select--project,
+.PaletteForm__button--cancel,
+.PaletteForm__button--save {
+  font-size: 30px;
+  height: 51px;
+  margin: 5px;
+  width: 100%;
+}
+
+.PaletteForm__h2--title {
+  font-size: 50px;
+}
+
+.PaletteForm__select--project,
+.PaletteForm__button--cancel,
+.PaletteForm__button--save {
+  cursor:pointer;
 }
