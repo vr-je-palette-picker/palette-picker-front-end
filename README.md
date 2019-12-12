@@ -11,7 +11,7 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
 
 <img width="1372" alt="Screen Shot 2019-12-11 at 11 52 11 PM" src="https://user-images.githubusercontent.com/48900496/70689408-6d5e4c00-1c71-11ea-96ba-6267537228d1.png">
 
-### App Preview
+## App Preview
 <details>
   <summary>GIF</summary>
   
@@ -20,7 +20,7 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
 </details>
 
 
-### Wireframe & Process
+## Wireframe & Process
 <details>
   <summary>Open to View Wireframe</summary>
   
