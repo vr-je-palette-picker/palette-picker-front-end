@@ -9,13 +9,6 @@ export class ProjectNav extends Component {
       input: ''
     }
   }
-  // createProjectSelectOptions = () => {
-  //   const { projects } = this.props;
-  //   let options = projects.map((project, index) => {
-  //     return <option key={index} value={project.project_name}></option>;
-  //   });
-  //   return options;
-  // };
 
   handleChange = (e) => {
     this.setState({input: e.target.value});
@@ -55,9 +48,6 @@ export class ProjectNav extends Component {
           <input placeholder='Enter Project Name' id='new-project-input' value={this.state.input} onChange={(e) => this.handleChange(e)}/>
           <p className='ProjectNav__button--new-project' onClick={() => this.checkUnique()}>Add New Project</p>
         </div>
-        {/* <select className='ProjectNav__select--project'>
-          {this.createProjectSelectOptions()}
-        </select> */}
       </div>
     );
   }
