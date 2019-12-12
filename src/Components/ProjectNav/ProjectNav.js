@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createNewProject } from '../../utils/apiCalls/apiCalls.js'
+import { createNewProject } from '../../utils/apiCalls/apiCalls.js';
 import './ProjectNav.scss';
 
 export class ProjectNav extends Component {
@@ -7,7 +7,7 @@ export class ProjectNav extends Component {
     super();
     this.state = {
       input: ''
-    }
+    };
   }
   // createProjectSelectOptions = () => {
   //   const { projects } = this.props;
@@ -17,34 +17,36 @@ export class ProjectNav extends Component {
   //   return options;
   // };
 
-  handleChange = (e) => {
-    this.setState({input: e.target.value});
+  handleChange = e => {
+    this.setState({ input: e.target.value });
   };
 
   checkUnique = () => {
     const { projects } = this.props;
-    let unique = true
+    let unique = true;
     projects.forEach(project => {
-      if (this.state.input === project.project 
-        || this.state.input === ''
-        || this.state.input === 'Enter Unique Project Name') {
-        return unique = false
+      if (
+        this.state.input === project.project ||
+        this.state.input === '' ||
+        this.state.input === 'Enter Unique Project Name'
+      ) {
+        return (unique = false);
       }
-    })
-    
+    });
+
     if (unique) {
-      return this.createNew()
+      return this.createNew();
     } else {
-      this.setState({input: 'Enter Unique Project Name'})
+      this.setState({ input: 'Enter Unique Project Name' });
     }
-  }
+  };
 
   createNew = async () => {
     const { fetchProjects } = this.props;
-    
-    await createNewProject({project_name: this.state.input});
-    this.setState({input: ''});
-    await fetchProjects()
+
+    await createNewProject({ project_name: this.state.input });
+    this.setState({ input: '' });
+    await fetchProjects();
   };
 
   render() {
@@ -52,8 +54,18 @@ export class ProjectNav extends Component {
       <div className='ProjectNav'>
         <h1 className='ProjectNav__h1--title'>Palette Projects</h1>
         <div className='ProjectNav__div--add-container'>
-          <input placeholder='Enter Project Name' id='new-project-input' value={this.state.input} onChange={(e) => this.handleChange(e)}/>
-          <p className='ProjectNav__button--new-project' onClick={() => this.checkUnique()}>Add New Project</p>
+          <input
+            placeholder='Enter Project Name'
+            id='new-project-input'
+            value={this.state.input}
+            onChange={e => this.handleChange(e)}
+          />
+          <p
+            className='ProjectNav__button--new-project'
+            onClick={() => this.checkUnique()}
+          >
+            Add New Project
+          </p>
         </div>
         {/* <select className='ProjectNav__select--project'>
           {this.createProjectSelectOptions()}
