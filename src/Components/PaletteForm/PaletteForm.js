@@ -26,6 +26,20 @@ export class PaletteForm extends Component {
     });
   };
 
+  validateForm = () => {
+    let validated = true;
+    if (this.state.paletteName === ''
+    || this.state.project === '') {
+      validated = false
+    } else {
+      validated = true
+    }
+
+    if (validated === true) {
+      this.createNewPalette();
+    }
+  }
+
   createNewPalette = async () => {
     const { newPalette, findProjectByName, fetchProjects } = this.props;
     let name = this.state.paletteName;
@@ -86,7 +100,7 @@ export class PaletteForm extends Component {
         <button
           className='PaletteForm__button--save'
           type='button'
-          onClick={this.createNewPalette}
+          onClick={this.validateForm}
         >
           Save
         </button>
