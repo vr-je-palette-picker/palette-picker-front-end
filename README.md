@@ -12,7 +12,7 @@ Palette Picker is an application that allows the user to find, create, and save 
 <details>
   <summary>App Preview</summary>
   
-  ![palettepickerreadme](https://user-images.githubusercontent.com/48900496/70689938-c4b0ec00-1c72-11ea-9b83-ae4fbf65962c.gif)
+![palettepickerreadme](https://user-images.githubusercontent.com/48900496/70690185-60425c80-1c73-11ea-935d-0ca71284ab28.gif)
 
 </details>
 
