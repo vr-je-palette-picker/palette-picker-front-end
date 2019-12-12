@@ -1,6 +1,6 @@
 # Palette Picker
 
-[Click Here to View the Live Site](https://vr-je-palette-picker.herokuapp.com/)
+Live Site: https://vr-je-palette-picker.herokuapp.com/
 
 Contributors: [Vanessa Randall](https://github.com/vrandall66) & [Jeannie Evans](https://github.com/jmevans0211)
 
