@@ -13,35 +13,35 @@ exports[`Container should match the snapshot 1`] = `
   >
     <ColorCard
       color="color_1"
-      hex="#D7401D"
+      hex="#CB59E5"
       key="0"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_2"
-      hex="#19ECC8"
+      hex="#9FD93A"
       key="1"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_3"
-      hex="#7ED1CC"
+      hex="#B3C923"
       key="2"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_4"
-      hex="#2C7B28"
+      hex="#2A62D1"
       key="3"
       locked={false}
       toggleLock={[Function]}
     />
     <ColorCard
       color="color_5"
-      hex="#B4D5A1"
+      hex="#924167"
       key="4"
       locked={false}
       toggleLock={[Function]}

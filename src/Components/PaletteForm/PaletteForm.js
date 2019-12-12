@@ -35,7 +35,6 @@ export class PaletteForm extends Component {
     await newPalette(name, foundId);
     await fetchProjects();
     this.cancelNewPalette();
-
   };
 
   cancelNewPalette = () => {

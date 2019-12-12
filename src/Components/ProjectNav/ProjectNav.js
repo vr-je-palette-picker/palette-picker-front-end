@@ -24,19 +24,15 @@ export class ProjectNav extends Component {
   checkUnique = () => {
     const { projects } = this.props;
     let unique = true
-console.log(projects)
     projects.forEach(project => {
-      console.log('in find', project)
       if (this.state.input === project.project 
         || this.state.input === ''
         || this.state.input === 'Enter Unique Project Name') {
-        console.log('in conditional', project.project, this.state.input)
         return unique = false
       }
     })
     
-    if (unique) {   
-      console.log('should create new')
+    if (unique) {
       return this.createNew()
     } else {
       this.setState({input: 'Enter Unique Project Name'})
