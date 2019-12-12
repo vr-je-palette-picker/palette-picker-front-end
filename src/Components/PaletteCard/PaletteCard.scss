@@ -3,6 +3,15 @@
   width: 100vw;
 }
 
+.PaletteCard__header {
+  display: flex;
+}
+
+.PaletteCard__p--palette-name {
+  font-size: 20px;
+  margin: 0;
+}
+
 .PaletteCard__delete--icon {
   height: 20px;
   width: 20px;

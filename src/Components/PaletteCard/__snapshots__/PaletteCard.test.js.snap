@@ -13,6 +13,7 @@ exports[`PaletteCard should match the snapshot 1`] = `
       Testing 123
     </p>
     <TiDeleteOutline
+      className="PaletteCard__delete--icon"
       onClick={[Function]}
     />
   </header>
