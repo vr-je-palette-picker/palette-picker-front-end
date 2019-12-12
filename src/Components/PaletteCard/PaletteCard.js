@@ -14,7 +14,10 @@ const PaletteCard = ({ palette, fetchProjects }) => {
     <div className='PaletteCard'>
       <header className='PaletteCard__header'>
         <p className='PaletteCard__p--palette-name'>{palette.palette_name}</p>
-        <TiDeleteOutline onClick={() => handleDelete(palette.id)}/>
+        <TiDeleteOutline 
+          className='PaletteCard__delete--icon'
+          onClick={() => handleDelete(palette.id)}
+        />
       </header>
       <div
         className='PaletteCard__div--color'

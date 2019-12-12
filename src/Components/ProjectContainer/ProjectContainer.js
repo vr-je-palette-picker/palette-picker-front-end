@@ -1,7 +1,8 @@
 import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 import PaletteCard from './../PaletteCard/PaletteCard.js';
-import { deleteProject } from './../../utils/apiCalls/apiCalls.js'
+import { deleteProject } from './../../utils/apiCalls/apiCalls.js';
+import './ProjectContainer.scss';
 
 const ProjectContainer = ({ project, fetchProjects }) => {
   const paletteCards = project.palettes.map((palette, index) => {
