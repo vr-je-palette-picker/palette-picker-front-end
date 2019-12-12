@@ -24,8 +24,8 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
 <details>
   <summary>Wireframe</summary>
 ![IMG_2569](https://user-images.githubusercontent.com/48900496/70728626-023b6680-1cbf-11ea-989f-57071f2fe737.JPG)
+</details>
 
-</details
 
 <details>
   <summary>Process</summary>
@@ -33,7 +33,6 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
   
   #### Project Board
   https://github.com/orgs/vr-je-palette-picker/projects/1
-
 </details>
 
 
