@@ -27,7 +27,7 @@ describe('PaletteForm', () => {
   const mockEvent = {
     target: {
       name: 'paletteName',
-      value: 'Living Room Remodel'
+      value: 'Times Square'
     }
   };
 
@@ -50,7 +50,7 @@ describe('PaletteForm', () => {
     wrapper.instance().handleChange(mockEvent);
 
     expect(wrapper.state()).toEqual({
-      paletteName: 'Living Room Remodel',
+      paletteName: 'Times Square',
       project: ''
     });
   });
