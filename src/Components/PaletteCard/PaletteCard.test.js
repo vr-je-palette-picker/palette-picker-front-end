@@ -1,6 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import PaletteCard from './PaletteCard';
+import { deletePalette } from '../../utils/apiCalls/apiCalls';
+
+jest.mock('../../utils/apiCalls/apiCalls');
 
 describe('PaletteCard', () => {
   let wrapper;
@@ -13,9 +16,12 @@ describe('PaletteCard', () => {
     color_5: 'FFFFFF',
     project_id: 2
   };
+  let fetchProjects = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<PaletteCard palette={palette} />);
+    wrapper = shallow(
+      <PaletteCard palette={palette} fetchProjects={fetchProjects} />
+    );
   });
 
   it('should match the snapshot', () => {
