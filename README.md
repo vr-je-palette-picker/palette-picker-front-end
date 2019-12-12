@@ -29,6 +29,9 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
   #### Process
   We worked as a team, pairing and collaborating often. We began our process by wireframing and then built our backend in Node.js. While programming the backend, we set up continuous integration and deployed to heroku. After building the backend we revised our wireframe and dove into building out the front end in React. Finally, we deployed our frontend to heroku, making our application fully usable on a live site.
   
+  #### Project Board
+  https://github.com/orgs/vr-je-palette-picker/projects/1
+  
 </details>
 
 ## Tech Stack
