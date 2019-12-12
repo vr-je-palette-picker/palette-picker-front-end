@@ -21,9 +21,31 @@ export class ProjectNav extends Component {
     this.setState({input: e.target.value});
   };
 
+  checkUnique = () => {
+    const { projects } = this.props;
+    let unique = true
+console.log(projects)
+    projects.forEach(project => {
+      console.log('in find', project)
+      if (this.state.input === project.project 
+        || this.state.input === ''
+        || this.state.input === 'Enter Unique Project Name') {
+        console.log('in conditional', project.project, this.state.input)
+        return unique = false
+      }
+    })
+    
+    if (unique) {   
+      console.log('should create new')
+      return this.createNew()
+    } else {
+      this.setState({input: 'Enter Unique Project Name'})
+    }
+  }
+
   createNew = async () => {
     const { fetchProjects } = this.props;
-
+    
     await createNewProject({project_name: this.state.input});
     this.setState({input: ''});
     await fetchProjects()
@@ -35,7 +57,7 @@ export class ProjectNav extends Component {
         <h1 className='ProjectNav__h1--title'>Palette Projects</h1>
         <div className='ProjectNav__div--add-container'>
           <input placeholder='Enter Project Name' id='new-project-input' value={this.state.input} onChange={(e) => this.handleChange(e)}/>
-          <p className='ProjectNav__button--new-project' onClick={() => this.createNew()}>Add New Project</p>
+          <p className='ProjectNav__button--new-project' onClick={() => this.checkUnique()}>Add New Project</p>
         </div>
         {/* <select className='ProjectNav__select--project'>
           {this.createProjectSelectOptions()}
