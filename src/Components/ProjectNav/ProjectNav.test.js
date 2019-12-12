@@ -27,7 +27,7 @@ describe('ProjectNav', () => {
   });
 
   it('should call handleChange onChange', () => {
-    // wrapper.instance().handleChange = jest.fn();
+    wrapper.instance().handleChange = jest.fn();
     wrapper.find('input').simulate('keydown')
 
     expect(wrapper.instance().handleChange).toHaveBeenCalled();
