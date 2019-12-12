@@ -14,7 +14,7 @@ export class HomeNav extends Component {
         <div className='HomeNav__div--icon-container'>
           <IoMdRefresh className='HomeNav__icon' onClick={randomColors} />
             <GiSave onClick={showModal} className='HomeNav__icon' />
-          <Link to='/projects'>
+          <Link className='link' to='/projects'>
             <FaRegFolder className='HomeNav__icon' />
           </Link>
         </div>
