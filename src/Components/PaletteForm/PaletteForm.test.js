@@ -1,9 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import PaletteForm from './PaletteForm';
-import { fetchProjects } from '../../utils/apiCalls/apiCalls';
-
-jest.mock('../../utils/apiCalls/apiCalls.js');
 
 describe('PaletteForm', () => {
   let wrapper;
@@ -38,6 +35,7 @@ describe('PaletteForm', () => {
         close={close}
         newPalette={newPalette}
         findProjectByName={findProjectByName}
+        fetchProjects={jest.fn()}
       />
     );
   });
@@ -61,18 +59,17 @@ describe('PaletteForm', () => {
     expect(options.length).toEqual(3);
   });
 
-  it('should call fetchProjects when createNewPalette is invoked', () => {
-    fetchProjects.mockImplementation(() => {
-      return Promise.resolve(projects);
-    });
-    wrapper.instance().createNewPalette();
-    expect(fetchProjects).toHaveBeenCalled();
+  it('should call fetchProjects when createNewPalette is invoked', async () => {
+    await wrapper.instance().createNewPalette();
+
+    expect(wrapper.instance().props.fetchProjects).toHaveBeenCalled();
   });
 
-  it('should call cancelNewPalette when createNewPalette is invoked', () => {
-    wrapper.instance().cancelNewPalette = jest.fn();
-    wrapper.instance().createNewPalette();
+  it('should call cancelNewPalette when createNewPalette is invoked', async () => {
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'cancelNewPalette');
+    await instance.createNewPalette();
 
-    expect(wrapper.instance().cancelNewPalette).toHaveBeenCalled();
+    expect(instance.cancelNewPalette).toHaveBeenCalled();
   });
 });
