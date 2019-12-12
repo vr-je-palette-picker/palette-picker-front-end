@@ -16,7 +16,7 @@ class ProjectPage extends Component {
     return (
     <main>
       <p>
-        <Link to='/'>
+        <Link className='link back-button' to='/'>
           <TiArrowBackOutline />
           Back to Palette Picker
         </Link>
