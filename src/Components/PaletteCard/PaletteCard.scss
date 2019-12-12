@@ -1,7 +1,7 @@
 .PaletteCard {
   height: 27vh;
-  margin: 20px;
-  min-width: 200px;
+  margin: 15px;
+  min-width: 300px;
 }
 
 .PaletteCard__header {
@@ -11,7 +11,9 @@
 
 .PaletteCard__p--palette-name {
   font-size: 25px;
+  font-weight: 200;
   margin: 0;
+  padding-bottom: 5px;
 }
 
 .PaletteCard__delete--icon {
@@ -22,5 +24,5 @@
 }
 
 .PaletteCard__div--color {
-  height: 35px;
+  height: 55px;
 }
