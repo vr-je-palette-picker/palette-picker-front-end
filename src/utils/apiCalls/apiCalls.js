@@ -72,6 +72,9 @@ export const createNewProject = async project => {
     `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects`,
     options
   );
+  if (!response.ok) {
+    throw new Error('Could not create new project, please try again later.');
+  }
   const data = await response.json();
 
   return data;
@@ -89,6 +92,9 @@ export const createNewPalette = async palette => {
     `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palettes/${palette.project_id}`,
     options
   );
+  if (!response.ok) {
+    throw new Error('Could not create new palette, please try again later.');
+  }
   const data = await response.json();
 
   return data;
@@ -100,14 +106,17 @@ export const deleteProject = async id => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }
-  
-  const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`, options)
+  };
+
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/projects/${id}`,
+    options
+  );
   if (!response.ok) {
-    throw new Error('Could not delete project, please try again later.')
+    throw new Error('Could not delete project, please try again later.');
   }
   return response;
-}
+};
 
 export const deletePalette = async id => {
   const options = {
@@ -115,12 +124,14 @@ export const deletePalette = async id => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }
-  
-  const response = await fetch(`${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`, options)
+  };
+
+  const response = await fetch(
+    `${process.env.REACT_APP_PRODUCTION_URL}/api/v1/palette/${id}`,
+    options
+  );
   if (!response.ok) {
-    throw new Error('Could not delete palette, please try again later.')
+    throw new Error('Could not delete palette, please try again later.');
   }
-  
   return response;
-}
+};

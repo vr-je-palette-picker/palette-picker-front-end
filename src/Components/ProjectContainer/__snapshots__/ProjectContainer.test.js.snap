@@ -4,9 +4,17 @@ exports[`ProjectContainer should match the snapshot 1`] = `
 <section
   className="ProjectContainer"
 >
-  <h2
-    className="ProjectContainer__h2--project-name"
-  />
+  <header
+    className="ProjectContainer__header"
+  >
+    <h2
+      className="ProjectContainer__h2--project-name"
+    />
+    <MdDeleteForever
+      className="ProjectContainer__header--delete-icon"
+      onClick={[Function]}
+    />
+  </header>
   <section
     className="ProjectContainer__section"
   >

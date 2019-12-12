@@ -9,11 +9,19 @@ exports[`ColorCard should match the snapshot 1`] = `
     }
   }
 >
-  <h4
-    className="ColorCard__h4"
+  <div
+    className="ColorCard__div--space"
   />
-  <MdCheckBoxOutlineBlank
-    onClick={[Function]}
-  />
+  <footer
+    className="ColorCard__footer"
+  >
+    <MdCheckBoxOutlineBlank
+      className="ColorCard__lock--icon"
+      onClick={[Function]}
+    />
+    <h4
+      className="ColorCard__h4"
+    />
+  </footer>
 </div>
 `;
