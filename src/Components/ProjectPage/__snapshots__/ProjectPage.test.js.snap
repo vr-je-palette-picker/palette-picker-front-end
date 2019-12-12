@@ -1,20 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProjectPage should match the snapshot 1`] = `
-<div
-  className="ProjectPage"
->
-  <ProjectContainer
-    key="0"
-    project={Object {}}
-  />
-  <ProjectContainer
-    key="1"
-    project={Object {}}
-  />
-  <ProjectContainer
-    key="2"
-    project={Object {}}
-  />
-</div>
+<main>
+  <p>
+    <Link
+      className="link back-button"
+      to="/"
+    >
+      <TiArrowBackOutline />
+      Back to Palette Picker
+    </Link>
+  </p>
+  <div
+    className="ProjectPage"
+  >
+    <ProjectContainer
+      key="0"
+      project={Object {}}
+    />
+    <ProjectContainer
+      key="1"
+      project={Object {}}
+    />
+    <ProjectContainer
+      key="2"
+      project={Object {}}
+    />
+  </div>
+</main>
 `;

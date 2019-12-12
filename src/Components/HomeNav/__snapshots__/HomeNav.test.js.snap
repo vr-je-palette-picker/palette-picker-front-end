@@ -19,6 +19,7 @@ exports[`HomeNav should match the snapshot 1`] = `
       className="HomeNav__icon"
     />
     <Link
+      className="link"
       to="/projects"
     >
       <FaRegFolder

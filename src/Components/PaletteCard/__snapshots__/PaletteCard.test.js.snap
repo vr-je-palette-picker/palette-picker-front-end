@@ -4,11 +4,18 @@ exports[`PaletteCard should match the snapshot 1`] = `
 <div
   className="PaletteCard"
 >
-  <p
-    className="PaletteCard__p--palette-name"
+  <header
+    className="PaletteCard__header"
   >
-    Testing 123
-  </p>
+    <p
+      className="PaletteCard__p--palette-name"
+    >
+      Testing 123
+    </p>
+    <TiDeleteOutline
+      onClick={[Function]}
+    />
+  </header>
   <div
     className="PaletteCard__div--color"
     style={

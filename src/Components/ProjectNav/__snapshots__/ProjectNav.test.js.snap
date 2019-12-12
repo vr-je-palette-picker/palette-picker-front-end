@@ -7,25 +7,23 @@ exports[`ProjectNav should match the snapshot 1`] = `
   <h1
     className="ProjectNav__h1--title"
   >
-    Palette Picker
+    Palette Projects
   </h1>
-  <button
-    className="ProjectNav__button--new-project"
+  <div
+    className="ProjectNav__div--add-container"
   >
-    New Project
-  </button>
-  <select
-    className="ProjectNav__select--project"
-  >
-    <option
-      key="0"
+    <input
+      id="new-project-input"
+      onChange={[Function]}
+      placeholder="Enter Project Name"
+      value=""
     />
-    <option
-      key="1"
-    />
-    <option
-      key="2"
-    />
-  </select>
+    <p
+      className="ProjectNav__button--new-project"
+      onClick={[Function]}
+    >
+      Add New Project
+    </p>
+  </div>
 </div>
 `;
