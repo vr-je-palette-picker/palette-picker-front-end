@@ -41,8 +41,8 @@ Link to back-end repository: https://github.com/vr-je-palette-picker/palette-pic
 
 ## Directions to run application locally
 
-- Clone repo: `git clone https://github.com/vr-je-palette-picker/palette-picker-front-end.git`
+- Clone repo: `$ git clone https://github.com/vr-je-palette-picker/palette-picker-front-end.git`
 
-- Install dependencies: `npm install`
+- Install dependencies: `$ npm install`
 
-- Run browser: `npm start`
+- Run browser: `$ npm start`
